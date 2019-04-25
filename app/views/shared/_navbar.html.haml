@@ -1,31 +1,25 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
     = link_to (image_tag 'base/maul_logo_red_blur.png'), '#', class: 'navbar-brand image-logo'
-    .justify-content-between
-      %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
-        %span.navbar-toggler-icon
-      #navbarText.collapse.navbar-collapse
-        %ul.navbar-nav.mr-auto
-          %li.nav-item.active
-            %a.nav-link{:href => "#"}
-              Home
-              %span.sr-only (current)
-          %li.nav-item
-            %a.nav-link{:href => "#"} Features more length
-          %li.nav-item
-            %a.nav-link{:href => "#"} Pricing very long
-        -# %span.navbar-text
-        -#   Navbar text with an inline element
-  -# .container
-    -# .col-12
-    -#   .d-flex.justify-content-between
-    -#     = link_to (image_tag 'base/maul_logo_red_blur.png'), '#', class: 'image-logo'
-
-
-        -# %button.navbar-toggler{"data-toggle"=>"collapse", "data-target"=>"#navbarText", "aria-controls"=>"navbarText", "aria-expanded"=>"false", "aria-label"=>"Toggle navigation"}
-        -# %ul.nav.justify-content-end
-        -#   %li.nav-item
-        -#     = link_to 'Comunidades', '#', class: 'nav-link active'
-        -#   %li.nav-item
-        -#     = link_to 'Sitios', '#', class: 'nav-link'
-        -# %span.navbar-toggler-icon
+    %button.float-right.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarText.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item.active
+          %a.nav-link{:href => "#"}
+            Comunidades
+        %li.nav-item
+          %a.nav-link{:href => "#"} Sitios
+        %li.nav-item
+          %a.nav-link{:href => "#"} Eventos
+        %li.nav-item
+          %a.nav-link{:href => "#"} Registrarse
+        %li.nav-item
+          %a.nav-link{:href => "#"} Iniciar Sesión
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{:href => "#", id: 'dropdownOptions', "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"} User
+          .dropdown-menu{"aria-labelledby"=>"dropdownOptions"}
+            .dropdown-item= link_to 'profile', '#'
+            .dropdown-item= link_to 'edit çprofile', '#'
+      -# %span.navbar-text
+      -#   text

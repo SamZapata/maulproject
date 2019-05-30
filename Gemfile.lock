@@ -84,6 +84,7 @@ GEM
     coolline (0.5.0)
       unicode_utils (~> 1.4)
     crass (1.0.4)
+    device_detector (1.0.1)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  device_detector
   haml
   jbuilder (~> 2.5)
   jquery-rails

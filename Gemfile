@@ -39,6 +39,8 @@ gem 'popper_js', '~> 1.14.5'
 # haml
 gem 'haml'
 
+# device detector
+gem 'device_detector'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -6,4 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Comuna = .find_or_create_by!
+%w(
+  comunas
+  sites
+).each do |seed|
+  puts "Loading seed file: #{seed}"
+  require_relative seed
+end

@@ -1,6 +1,6 @@
 %nav.navbar.navbar-expand-lg.navbar-light.mt-70.bg-light
   .container
-    = link_to (image_tag 'base/maul_logo_red_blur.png'), '#', class: 'navbar-brand image-logo'
+    = link_to (image_tag 'base/maul_logo_red_blur.png'), '/', class: 'navbar-brand image-logo'
     %button.float-right.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarText.collapse.navbar-collapse
@@ -20,6 +20,6 @@
           %a.nav-link.dropdown-toggle{:href => "#", id: 'dropdownOptions', "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"} User
           .dropdown-menu{"aria-labelledby"=>"dropdownOptions"}
             .dropdown-item= link_to 'profile', '#'
-            .dropdown-item= link_to 'edit çprofile', '#'
+            .dropdown-item= link_to 'edit profile', '#'
       -# %span.navbar-text
       -#   text

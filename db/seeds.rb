@@ -9,6 +9,7 @@
 %w(
   comunas
   sites
+  communities
 ).each do |seed|
   puts "Loading seed file: #{seed}"
   require_relative seed

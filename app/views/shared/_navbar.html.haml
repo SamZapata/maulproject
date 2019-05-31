@@ -6,12 +6,11 @@
     #navbarText.collapse.navbar-collapse
       %ul.navbar-nav.ml-auto
         %li.nav-item.active
-          %a.nav-link{:href => "#"}
-            Comunidades
+          .nav-link= link_to 'Comunidades', communities_path
         %li.nav-item
-          %a.nav-link{:href => "#"} Sitios
+          .nav-link= link_to 'Sitios', sites_path
         %li.nav-item
-          %a.nav-link{:href => "#"} Eventos
+          .nav-link= link_to 'Eventos', events_path
         %li.nav-item
           %a.nav-link{:href => "#"} Registrarse
         %li.nav-item

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_235650) do
+ActiveRecord::Schema.define(version: 2019_06_01_193913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_235650) do
     t.datetime "updated_at", null: false
     t.string "website"
     t.string "string"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "youtube"
   end
 
   create_table "comunas", force: :cascade do |t|
@@ -42,6 +46,8 @@ ActiveRecord::Schema.define(version: 2019_05_31_235650) do
     t.datetime "final_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "facebook"
+    t.string "other_link"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -53,6 +59,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_235650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "link"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "youtube"
   end
 
   create_table "users", force: :cascade do |t|

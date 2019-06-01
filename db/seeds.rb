@@ -10,6 +10,7 @@
   comunas
   sites
   communities
+  events
 ).each do |seed|
   puts "Loading seed file: #{seed}"
   require_relative seed

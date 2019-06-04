@@ -1,0 +1,20 @@
+.col-12.d-flex.justify-content-center
+  = simple_form_for @user_profile do |f|
+
+    %p Nombre de usuario
+    = f.input :nickname, placeholder: 'ej: joe60', label: false
+    %br
+    %p Nombres
+    = f.input :first_name, placeholder: 'ej: joe stewar', label: false
+    %br
+    %p Apellidos
+    = f.input :last_name, placeholder: 'ej. Doe Poe', label: false
+    %br
+    %p Sobre mí
+    = f.input :about_me, placeholder: 'ej. Soy líder de deportes en la comuna 10', label: false
+    %br
+    %p Fecha de Nacimiento
+    = f.input :birthdate, label: false
+    %br
+
+    = f.button :submit, 'Actualizar', class: 'btn btn-info'

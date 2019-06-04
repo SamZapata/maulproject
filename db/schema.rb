@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_193913) do
+ActiveRecord::Schema.define(version: 2019_06_04_065931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_06_01_193913) do
     t.string "youtube"
   end
 
+  create_table "community_mauls", force: :cascade do |t|
+    t.string "name"
+    t.bigint "community_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_community_mauls_on_community_id"
+    t.index ["event_id"], name: "index_community_mauls_on_event_id"
+  end
+
   create_table "comunas", force: :cascade do |t|
     t.string "name"
     t.text "abotu"
@@ -48,6 +58,37 @@ ActiveRecord::Schema.define(version: 2019_06_01_193913) do
     t.datetime "updated_at", null: false
     t.string "facebook"
     t.string "other_link"
+  end
+
+  create_table "maul_plans", force: :cascade do |t|
+    t.bigint "community_id"
+    t.bigint "site_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_maul_plans_on_community_id"
+    t.index ["site_id"], name: "index_maul_plans_on_site_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nickname"
+    t.date "birthdate"
+    t.text "about_me"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "site_mauls", force: :cascade do |t|
+    t.string "name"
+    t.bigint "site_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_site_mauls_on_event_id"
+    t.index ["site_id"], name: "index_site_mauls_on_site_id"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -77,4 +118,10 @@ ActiveRecord::Schema.define(version: 2019_06_01_193913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "community_mauls", "communities"
+  add_foreign_key "community_mauls", "events"
+  add_foreign_key "maul_plans", "communities"
+  add_foreign_key "maul_plans", "sites"
+  add_foreign_key "site_mauls", "events"
+  add_foreign_key "site_mauls", "sites"
 end

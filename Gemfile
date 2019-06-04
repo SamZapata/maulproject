@@ -46,6 +46,15 @@ gem 'device_detector'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# simple form
+gem 'simple_form'
+
+# JS Library
+gem 'selectize-rails'
+
+# internationalization
+gem 'rails-i18n'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

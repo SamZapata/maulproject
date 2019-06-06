@@ -1,0 +1,56 @@
+-# mobile version for navbar menu
+.m-main-menu
+  .m-navbar.d-flex.justify-content-center
+    .container.d-flex.justify-around
+      .col-4.text-center.d-flex.align-items-center
+        %h2= link_to 'Maul Project', '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal"
+      .col-4.text-center.d-flex.align-items-center
+        .m-home-btn= link_to (image_tag 'base/maul_logo_red_blur.png'), '/', class: 'navbar-brand m-image-logo'
+      .col-4.text-center.d-flex.align-items-center
+        - if user_signed_in?
+          %h2.m-home-text= link_to t('mainmenu.my_profile'), '', "data-toggle"=>"modal", "data-target"=>"#profileModal"
+        - else
+          %h2= link_to t('mainmenu.my_account'), '', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#accountModal"
+
+
+  / Modal for Maul Project menu
+  #maulProjectModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "maulProjectModal", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-dialog-centered{:role => "document"}
+      .modal-content.modal-menu
+        .modal-header
+          %h2#maulProjectModalTitle.modal-title MAUL PROJECT
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Save changes
+
+  / Modal for profile
+  #profileModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "profileModal", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-dialog-centered{:role => "document"}
+      .modal-content.modal-menu
+        .modal-header
+          %h5#profileModalTitle.modal-title Modal title PROFILE
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Save changes
+
+  / Modal for account
+  #accountModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "profileModal", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-dialog-centered{:role => "document"}
+      .modal-content.modal-menu
+        .modal-header
+          %h5#accountModalTitle.modal-title Modal title
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Save changes

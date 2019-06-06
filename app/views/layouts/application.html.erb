@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%- client = DeviceDetector.new(request.user_agent) %>
+    <%- type = client.device_type == 'smartphone' ? 'smartphone' : 'base' %>
+    <%= render "shared/#{type}/navbar" %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

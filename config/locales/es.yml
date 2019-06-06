@@ -3,3 +3,7 @@ es:
   base:
     home: Inicio
     login: Iniciar Sesión
+  mainmenu:
+    my_profile: Mí Perfil
+    my_account: Mí Cuenta
+    check_in: Registrarse

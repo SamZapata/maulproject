@@ -3,7 +3,12 @@ es:
   base:
     home: Inicio
     login: Iniciar Sesión
+    communities: Comunidades
   mainmenu:
     my_profile: Mí Perfil
     my_account: Mí Cuenta
     check_in: Registrarse
+    communities: Comunidades
+    sites: Sitios
+    events: Eventos
+    about_maul: Sobre el proyecto

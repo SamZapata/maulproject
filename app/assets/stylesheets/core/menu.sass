@@ -23,6 +23,8 @@
 
 // css for smartphone version
 .m-main-menu
+  .link-white
+    color: $white
   .m-navbar
     min-height: calc(10vh)
     height: auto
@@ -36,15 +38,66 @@
         img
           vertical-align: middle
           width: calc(80%)
+    h2
+      line-height: 0.5
     .m-home-text
       margin: auto auto
-      @include font-size(22)
+      @include font-size(10)
       color: $white
-      &:hover
-        color: red
+      font-weight: bold
     a:hover
       filter: invert(0.5) sepia(2) saturate(1) hue-rotate(880.0deg)
 
   .modal-content
+    background-color: $dark-light
+    .modal-title
+      color: $white
+    .modal-body
+      padding-left: 0 !important
+      padding-right: 0 !important
+      .btn-selection__communities
+        width: calc(100%)
+        height: calc(10vh)
+        background-color: $transparent
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        margin-top: 10px
+        &:hover
+          background-color: $navy
+      .btn-selection__sites
+        width: calc(100%)
+        height: calc(10vh)
+        background-color: $transparent
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        margin-top: 10px
+        &:hover
+          background-color: $red
+      .btn-selection__events
+        width: calc(100%)
+        height: calc(10vh)
+        background-color: $transparent
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        margin-top: 10px
+        &:hover
+          background-color: $light-green
+      .btn-selection__base
+        width: calc(100%)
+        height: calc(10vh)
+        background-color: $dark-light
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        margin-top: 10px
+        &:hover
+          background-color: $transparent
     &.modal-menu
       height: calc(80vh)

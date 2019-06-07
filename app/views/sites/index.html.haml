@@ -1,0 +1,30 @@
+- client = DeviceDetector.new(request.user_agent)
+- type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
+
+%p#notice= notice
+%h1.text-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-dark'
+
+.d-flex.justify-content-center
+  %ul#tabSites.nav.nav-tabs{:role => "tablist"}
+    %li.nav-item
+      %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab"} Todos
+    %li.nav-item
+      %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab"} Categorías
+    %li.nav-item
+      %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab"} Comunas
+
+.sites
+  = render "sites/#{type}/index"
+
+-# %tbody
+  - @sites.each do |site|
+    %tr
+      %td= site.name
+      %td= site.about
+      %td= site.address
+      %td= site.phone
+      %td= site.email
+      %td= link_to 'Show', site
+      %td= link_to 'Edit', edit_site_path(site)
+      %td= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' }
+      -# = link_to 'New Community', new_site_path

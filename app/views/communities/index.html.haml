@@ -13,7 +13,8 @@
     %li.nav-item
       %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab"} Comunas
 
-= render "communities/#{type}/index"
+.communities
+  = render "communities/#{type}/index"
 
 -# %tbody
   - @communities.each do |community|

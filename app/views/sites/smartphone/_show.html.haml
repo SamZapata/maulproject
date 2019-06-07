@@ -1,0 +1,46 @@
+
+-# %nav{"aria-label" => "breadcrumb"}
+  .breadcrumb.bg-primary
+    .container
+      %ol.breadcrumb.bg-primary
+        -# %li.breadcrumb-item
+          %a.link-dark{:href => "/"}
+            %i.fas.fa-home
+        %li.breadcrumb-item
+          %a.link-dark{:href => sites_path}= t('base.sites')
+        -# %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
+.show-site
+  .bg-bar-site
+    .container
+      %h2.text-left.link-white= @site.name
+
+  .container
+    %p#notice= notice
+    / site image
+    = image_tag "base/elements_svg/undraw_reminder_pa79_.svg", alt: 'image ', width: '50%'
+
+    - missingData = []
+    %p
+      = @site.about
+    .d-flex.justify-content-center
+      %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
+    = link_to 'Edit', edit_site_path(@site)
+
+    -# = verifyFields @site
+    - if @site.address.present?
+      %p
+        %strong Dirección:
+        = @site.address
+    - else
+      - missingData << @site.address
+
+    - if @site.phone.present?
+      %p
+        %strong Teléfono de contacto:
+        = @site.phone
+    - else
+      - missingData << @site.phone
+
+    = link_to 'Edit', edit_site_path(@site)
+    |
+    = link_to 'Back', sites_path

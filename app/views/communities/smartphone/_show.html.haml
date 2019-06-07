@@ -37,7 +37,7 @@
     - else
       - missingData << @community.phone
 
-    - if @community.phone.present?
+    - if @community.email.present?
       %p
         %strong Correo electrónico:
         = @community.email

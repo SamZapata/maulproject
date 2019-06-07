@@ -1,0 +1,28 @@
+.show-site
+  %nav{"aria-label" => "breadcrumb"}
+    .bg-bar-site
+      .container
+        %ol.breadcrumb
+          %li.breadcrumb-item
+            %a.link-white{:href => "/"}
+              %i.fas.fa-home
+          %li.breadcrumb-item
+            %a.link-white{:href => sites_path}= t('base.sites')
+          %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
+  .container
+    %p#notice= notice
+    %h2.text-left= @site.name
+    %p
+      %strong About:
+      = @site.about
+    %p
+      %strong Address:
+      = @site.address
+    %p
+      %strong Phone:
+      = @site.phone
+    .d-flex.justify-content-center
+      %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
+    = link_to 'Edit', edit_site_path(@site)
+    |
+    = link_to 'Back', sites_path

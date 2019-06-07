@@ -1,5 +1,5 @@
 - client = DeviceDetector.new(request.user_agent)
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
-.communities
-  = render "communities/#{type}/show"
+.sites
+  = render "sites/#{type}/show"

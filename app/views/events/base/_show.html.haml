@@ -1,0 +1,23 @@
+.show-event
+  %nav{"aria-label" => "breadcrumb"}
+    .bg-bar-event
+      .container
+        %ol.breadcrumb
+          %li.breadcrumb-item
+            %a.link-white{:href => "/"}
+              %i.fas.fa-home
+          %li.breadcrumb-item
+            %a.link-white{:href => events_path}= t('base.events')
+          %li.breadcrumb-item.active{"aria-current" => "page"}= @event.name
+  .container
+    %p#notice= notice
+    %h2.text-left= @event.name
+    %p
+      = @event.description
+    %p
+      = @event.start_date
+    %p
+      = @event.final_date
+    = link_to 'Edit', edit_event_path(@event)
+    |
+    = link_to 'Back', events_path

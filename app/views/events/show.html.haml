@@ -1,0 +1,5 @@
+- client = DeviceDetector.new(request.user_agent)
+- type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
+
+.events
+  = render "events/#{type}/show"

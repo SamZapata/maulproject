@@ -1,0 +1,32 @@
+
+-# %nav{"aria-label" => "breadcrumb"}
+  .breadcrumb.bg-primary
+    .container
+      %ol.breadcrumb.bg-primary
+        -# %li.breadcrumb-item
+          %a.link-dark{:href => "/"}
+            %i.fas.fa-home
+        %li.breadcrumb-item
+          %a.link-dark{:href => events_path}= t('base.events')
+        -# %li.breadcrumb-item.active{"aria-current" => "page"}= @event.name
+.show-event
+  .bg-bar-event
+    .container
+      %h2.text-left.link-white= @event.name
+
+  .container
+    %p#notice= notice
+    / event image
+    = image_tag "base/elements_svg/undraw_reminder_pa79_.svg", alt: 'image ', width: '50%'
+
+    - missingData = []
+    %p
+      = @event.description
+    %p
+      = @event.start_date
+    %p
+      = @event.final_date
+
+    = link_to 'Edit', edit_event_path(@event)
+    |
+    = link_to 'Back', events_path

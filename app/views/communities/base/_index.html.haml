@@ -1,0 +1,15 @@
+#tabCommunitiesContent.tab-content
+  #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
+    .content.col-12
+      .card-columns
+        - @communities.each do |community|
+          .box-index.card.p-2.mt-5
+            %blockquote.blockquote.mb-0
+              .card-body.bg-card
+                = image_tag 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg', width: '50%'
+                =link_to community.name, community, class: 'card-title'
+              %footer
+                .text-right temática 1, temática 2...
+
+  #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
+  #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...

@@ -49,6 +49,8 @@ gem 'device_detector'
 # simple form
 gem 'simple_form'
 
+gem 'font_awesome5_rails'
+
 # JS Library
 gem 'selectize-rails'
 

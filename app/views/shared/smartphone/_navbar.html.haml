@@ -15,7 +15,7 @@
 
   / Modal for Maul Project menu
   #maulProjectModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "maulProjectModal", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-dialog{:role => "document"}
       .modal-content.modal-menu
         .modal-header
           %h2#maulProjectModalTitle.modal-title Maul Project
@@ -33,7 +33,7 @@
 
   / Modal for profile
   #profileModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "profileModal", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-dialog{:role => "document"}
       .modal-content.modal-menu
         -# .modal-header
           %h5#profileModalTitle.modal-title Modal title PROFILE
@@ -52,7 +52,7 @@
 
   / Modal for account
   #accountModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "profileModal", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-dialog{:role => "document"}
       .modal-content.modal-menu
         .modal-body.d-flex.flex-column
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}

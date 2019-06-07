@@ -16,5 +16,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require font_awesome5
 //= require bootstrap-sprockets
 //= require_tree .

@@ -1,13 +1,46 @@
 @import "../base/style"
 
-.card.bg-dark
-  &.bg-card
-    display: flex
-    vertical-align: middle
-    align-items: center
-    background-color: $offwhite !important
+.box-index.card
+  border: 0
+  border-bottom: 1px solid $silvery
+  .card-body
+    padding-left: 0 !important
+    padding-right: 0 !important
+    &.bg-card
+      display: flex
+      vertical-align: middle
+      align-items: center
+      justify-content: center
+      background-color: $offwhite !important
+      height: calc(30vh)
     img
       position: absolute
       width: auto
       height: calc(80%)
-      z-index: 5
+      z-index: 1
+    .card-title
+      display: flex
+      width: 100%
+      min-height: calc(10vh)
+      height: auto
+      z-index: 10
+      background-color: $dark-transparent
+      justify-content: center
+      align-items: center
+      color: $white
+      &:hover
+        background-color: $navy-transparent 
+
+.tabs-communities
+  font-size: 10% !important
+  margin: 10px
+
+.show-community
+  .bg-bar-community
+    width: calc(100vw)
+    height: auto
+    background-color: $navy
+    padding: 10px 0
+
+    .breadcrumb
+      background-color: $navy

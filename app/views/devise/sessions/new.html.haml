@@ -1,0 +1,26 @@
+-# forget password view
+
+.maul-user
+  .container.d-flex.flex-column
+    %h2.text-center.mt-4.mb-4= t('user.sign_in')
+
+    .card
+      .card-body.needs-validation.text-center
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label I18n.t("user.email")
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: t("user.email")
+          .field
+            = f.label I18n.t("user.password")
+            %br/
+            = f.password_field :password, autocomplete: t("user.current_password")
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label I18n.t("user.remember_me")
+          .actions
+            = f.submit t("user.login"), class: 'btn btn-dark'
+        .col-12
+          .d-flex.justify-content-center
+            = render "devise/shared/links"

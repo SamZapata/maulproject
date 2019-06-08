@@ -23,7 +23,7 @@
       #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
         / comuna image
         -# = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image ', width: '50%'
-        %p
+        %p.mt-5
           = @comuna.about
         .d-flex.justify-content-center
           = @comuna.map.html_safe

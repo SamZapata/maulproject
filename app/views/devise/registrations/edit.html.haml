@@ -1,0 +1,42 @@
+-# update account
+
+.maul-user
+  .container.d-flex.flex-column
+    %h2.text-center.mt-4.mb-4= t('user.user_edit')
+
+    .card
+      .card-body.needs-validation.text-center
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          .d-flex
+            = devise_error_messages!
+          .field
+            = f.label I18n.t("user.email")
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            %div
+              Currently waiting confirmation for: #{resource.unconfirmed_email}
+          .field
+            = f.label I18n.t("user.password")
+            -# %i (leave blank if you don't want to change it)
+            %br/
+            = f.password_field :password, autocomplete: I18n.t("user.new_password")
+            - if @minimum_password_length
+              %br/
+              %em
+                (mínimo #{@minimum_password_length} caracteres)
+          .field
+            = f.label I18n.t("user.confirm_password")
+            %br/
+            = f.password_field I18n.t("user.password"), autocomplete: I18n.t("user.new_password")
+          .field
+            = f.label I18n.t("user.current_password")
+            %i para confirmar los cambios debes ingresar tu contraseña actual
+            %br/
+            = f.password_field :current_password, autocomplete: t("user.current_password")
+          .actions
+            = f.submit t("base.update_account")
+        -# %h3 Cancel my account
+        -# %p
+          Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+        -# = link_to "Back", :back

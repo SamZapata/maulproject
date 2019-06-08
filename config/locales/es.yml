@@ -6,6 +6,7 @@ es:
     communities: Comunidades
     sites: Sitios
     events: Eventos
+    update: Actualizar
   mainmenu:
     my_profile: Mí Perfil
     my_account: Mí Cuenta
@@ -14,3 +15,17 @@ es:
     sites: Sitios
     events: Eventos
     about_maul: Sobre el proyecto
+  user:
+    sign_up: Registrarse
+    sign_in: Iniciar Sesión
+    user_edit: Modificar la cuenta
+    email: Email
+    password: Contraseña
+    new_password: Nueva Contraseña
+    confirm_password: Confirmar Contraseña
+    current_password: Contraseña Actual
+    create_account: Crear Cuenta
+    update_account: Actualizar Mí Cuenta
+    remember_me: Recordarme
+    login: Iniciar Sesión
+    forget_password: Olvidó la contraseña?

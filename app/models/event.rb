@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
 
-  belongs_to :comunas
-  
+  belongs_to :comuna, class_name: 'Comuna', optional: true
+
   has_many :mix_categories
   has_many :communities, through: :community_mauls
 

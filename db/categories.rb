@@ -4,97 +4,97 @@ categories = [
   {
     title: "Deportes",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Arte",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Teatro",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Tecnología",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Educación",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Salud",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Ocio",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Política",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Conciertos",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Medio Ambiente",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Rumba",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Académico",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Turismo",
     about: "",
-    type: "ce"
+    ref: "ce"
   },
   {
     title: "Museos",
     about: "",
-    type: "s"
+    ref: "s"
   },
   {
     title: "Tiendas",
     about: "",
-    type: "s"
+    ref: "s"
   },
   {
     title: "Colegios",
     about: "",
-    type: "s"
+    ref: "s"
   },
   {
     title: "Universidades",
     about: "",
-    type: "s"
+    ref: "s"
   },
   {
     title: "Escenarios Deportivos",
     about: "",
-    type: "s"
+    ref: "s"
   },
   {
     title: "Parques",
     about: "",
-    type: "s"
+    ref: "s"
   },
 ]
 

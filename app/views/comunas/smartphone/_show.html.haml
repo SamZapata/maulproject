@@ -24,13 +24,37 @@
         / comuna image
         -# = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image ', width: '50%'
         %p
-          = @comuna.abotu
+          = @comuna.about
         .d-flex.justify-content-center
           = @comuna.map.html_safe
         -# = link_to 'Edit', edit_comuna_path(@comuna)
 
-      #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"} ...
+      #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
+        - @comuna.community.each do |c|
+          .box-index.card.p-2.mt-4
+            %blockquote.blockquote.mb-0
+              .card-body.bg-card
+                = image_tag 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg', width: '50%'
+                =link_to c.name, "/communities/#{c.id}/", class: 'card-title'
+              %footer
+                .text-right temática 1, temática 2...
 
-      #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"} ...
+      #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"}
+        - @comuna.site.each do |s|
+          .box-index.card.p-2.mt-4
+            %blockquote.blockquote.mb-0
+              .card-body.bg-card
+                = image_tag 'base/elements_svg/undraw_reminder_pa79.svg', width: '50%'
+                =link_to s.name, "/sites/#{s.id}/", class: 'card-title'
+              %footer
+                .text-right temática 1, temática 2...
 
-      #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"} ...
+      #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"}
+        - @comuna.event.each do |e|
+          .box-index.card.p-2.mt-4
+            %blockquote.blockquote.mb-0
+              .card-body.bg-card
+                = image_tag 'base/elements_svg/undraw_festivities_tvvj.svg', width: '50%'
+                =link_to e.name, "/events/#{e.id}/", class: 'card-title'
+              %footer
+                .text-right temática 1, temática 2...

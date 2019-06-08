@@ -22,23 +22,29 @@
         %a#events-tab.nav-link{"aria-controls" => "events", "aria-selected" => "false", "data-toggle" => "tab", :href => "#events", :role => "tab"} Eventos
 
     %p#notice= notice
-    
+
   .container
     #tabComunasOpContent.tab-content
       #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
         / comuna image
         -# = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image ', width: '50%'
         %p
-          = @comuna.abotu
+          = @comuna.about
         .d-flex.justify-content-center
           = @comuna.map.html_safe
         -# = link_to 'Edit', edit_comuna_path(@comuna)
 
-      #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"} ...
+      #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
+        - @comuna.community.each do |c|
+          %p=link_to c.name, "/communities/#{c.id}/"
 
-      #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"} ...
+      #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"}
+        - @comuna.site.each do |s|
+          %p=link_to s.name, "/sites/#{s.id}/"
 
-      #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"} ...
+      #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"}
+        - @comuna.event.each do |e|
+          %p=link_to e.name, "/events/#{e.id}/"
 
 
   -# .container

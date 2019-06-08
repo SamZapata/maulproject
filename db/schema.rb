@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_203109) do
+ActiveRecord::Schema.define(version: 2019_06_08_014017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.text "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ref"
+  end
 
   create_table "communities", force: :cascade do |t|
     t.string "name"
@@ -29,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_203109) do
     t.string "instagram"
     t.string "twitter"
     t.string "youtube"
+    t.bigint "comuna_id"
+    t.index ["comuna_id"], name: "index_communities_on_comuna_id"
   end
 
   create_table "community_mauls", force: :cascade do |t|
@@ -59,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_203109) do
     t.datetime "updated_at", null: false
     t.string "facebook"
     t.string "other_link"
+    t.bigint "comuna_id"
+    t.index ["comuna_id"], name: "index_events_on_comuna_id"
   end
 
   create_table "maul_plans", force: :cascade do |t|
@@ -69,6 +81,20 @@ ActiveRecord::Schema.define(version: 2019_06_07_203109) do
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_maul_plans_on_community_id"
     t.index ["site_id"], name: "index_maul_plans_on_site_id"
+  end
+
+  create_table "mix_categories", force: :cascade do |t|
+    t.string "title"
+    t.bigint "category_id"
+    t.bigint "community_id"
+    t.bigint "site_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_mix_categories_on_category_id"
+    t.index ["community_id"], name: "index_mix_categories_on_community_id"
+    t.index ["event_id"], name: "index_mix_categories_on_event_id"
+    t.index ["site_id"], name: "index_mix_categories_on_site_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -105,6 +131,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_203109) do
     t.string "instagram"
     t.string "twitter"
     t.string "youtube"
+    t.bigint "comuna_id"
+    t.index ["comuna_id"], name: "index_sites_on_comuna_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,10 +147,17 @@ ActiveRecord::Schema.define(version: 2019_06_07_203109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "communities", "comunas"
   add_foreign_key "community_mauls", "communities"
   add_foreign_key "community_mauls", "events"
+  add_foreign_key "events", "comunas"
   add_foreign_key "maul_plans", "communities"
   add_foreign_key "maul_plans", "sites"
+  add_foreign_key "mix_categories", "categories"
+  add_foreign_key "mix_categories", "communities"
+  add_foreign_key "mix_categories", "events"
+  add_foreign_key "mix_categories", "sites"
   add_foreign_key "site_mauls", "events"
   add_foreign_key "site_mauls", "sites"
+  add_foreign_key "sites", "comunas"
 end

@@ -24,6 +24,7 @@
     = form.text_area :about
   .field
     = form.label :community
-    = form.collection_search :community_ids, Community.all, :id, :name
+    = form.collection_check_boxes :community_ids, Community.all, :id, :name do |c|
+      = c.check_box
   .actions
     = form.submit

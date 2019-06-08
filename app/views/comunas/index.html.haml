@@ -1,13 +1,13 @@
 - client = DeviceDetector.new(request.user_agent)
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
-.sites
-  .bg-bar-site
-    %h1.text-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+.comunas
+  .bg-bar-comuna
+    %h1.text-center= link_to t('base.comunas'), comunas_path, alt: 'index comunas', class: 'link-white'
   %p#notice= notice
 
   .d-flex.justify-content-center
-    %ul#tabSites.nav.nav-tabs{:role => "tablist"}
+    %ul#tabComunas.nav.nav-tabs{:role => "tablist"}
       %li.nav-item
         %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab"} Todos
       %li.nav-item
@@ -15,4 +15,4 @@
       %li.nav-item
         %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab"} Comunas
 
-  = render "sites/#{type}/index"
+  = render "comunas/#{type}/index"

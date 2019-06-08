@@ -2,15 +2,18 @@
 .m-main-menu
   .m-navbar.d-flex.justify-content-center
     .container.d-flex.justify-around
-      .col-4.text-center.d-flex.align-items-center
-        %h2= link_to 'Maul Project', '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal"
+      .col-4.text-center.d-flex.align-items-center.justify-content-start
+        = link_to '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal", "data-toggle"=>"modal", "data-target"=>"#maulProjectModal" do
+          %i.fa.fa-bars.fa-2x
       .col-4.text-center.d-flex.align-items-center
         .m-home-btn= link_to (image_tag 'base/maul_logo_red_blur.png'), '/', class: 'navbar-brand m-image-logo'
-      .col-4.text-center.d-flex.align-items-center
+      .col-4.text-center.d-flex.align-items-center.justify-content-end
         - if user_signed_in?
-          %h2.m-home-text= link_to t('mainmenu.my_profile'), '', "data-toggle"=>"modal", "data-target"=>"#profileModal", class: 'm-home-text'
+          = link_to '', "data-toggle"=>"modal", "data-target"=>"#profileModal", class: 'm-home-text' do
+            %i.fa.fa-user-edit.fa-2x
         - else
-          %h2= link_to t('mainmenu.my_account'), '', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#accountModal"
+          =link_to '', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#accountModal" do
+            %i.fa.fa-user.fa-2x
 
 
   / Modal for Maul Project menu
@@ -28,8 +31,8 @@
             = link_to t('mainmenu.sites'), sites_path, class: 'link-white'
           .btn-selection__events.text-center
             = link_to t('mainmenu.events'), events_path, class: 'link-white'
-          .mt-auto.p-2.ml-auto
-            = link_to t('mainmenu.about_maul'), '#', class: 'link-white'
+          -# .mt-auto.p-2.ml-auto
+            -# = link_to t('mainmenu.about_maul'), '#', class: 'link-white'
 
   / Modal for profile
   #profileModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "profileModal", :role => "dialog", :tabindex => "-1"}
@@ -47,7 +50,7 @@
               = link_to 'Actualizar Perfil', edit_profile_path(current_user.profile.id), class: 'link-white'
             .btn-selection__base.text-center
               = link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: 'link-white'
-            .mt-auto.p-2.ml-auto
+            -# .mt-auto.p-2.ml-auto
               = link_to t('mainmenu.about_maul'), '#', class: 'link-white'
 
   / Modal for account
@@ -61,5 +64,5 @@
             =  link_to 'Registrarse', new_user_registration_path, class: 'link-white'
           .btn-selection__base.text-center
             = link_to 'Iniciar Sesión', new_user_session_path, class: 'link-white'
-          .mt-auto.ml-auto.p-2
+          -# .mt-auto.ml-auto.p-2
             = link_to t('mainmenu.about_maul'), '#', class: 'link-white'

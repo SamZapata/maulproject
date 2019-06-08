@@ -1,7 +1,7 @@
 class CommunitiesController < ApplicationController
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
-  layout 'communities/layout'
+  # layout 'communities/layout'
 
   # GET /communities
   # GET /communities.json

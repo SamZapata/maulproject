@@ -1,0 +1,37 @@
+.bg-bar-site
+  .container
+    %h2.text-left.link-white= t('site.register_form')
+
+.container.d-flex.flex-column
+  .card
+    .card-body.needs-validation.text-center
+      - site = @site
+      = form_with(model: site, local: true) do |form|
+        - if site.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(site.errors.count, "error")
+              prohibited this site from being saved:
+            %ul
+              - site.errors.full_messages.each do |message|
+                %li= message
+        .field
+          = form.label :name
+          = form.text_field :name
+        .field
+          = form.label :address
+          = form.text_field :address
+        .field
+          = form.label :map
+          = form.text_field :map
+        .field
+          = form.label :phone
+          = form.text_field :phone
+        .field
+          = form.label :about
+          = form.text_area :about
+        .field
+          = form.label :community
+          = form.collection_select :community_ids, Community.all, :id, :name
+        .actions
+          = form.submit

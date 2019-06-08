@@ -28,6 +28,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
+        add_community(site_params[:id])
         format.html { redirect_to @site, notice: 'Site was successfully created.' }
         format.json { render :show, status: :created, location: @site }
       else
@@ -74,5 +75,13 @@ class SitesController < ApplicationController
         event_ids: [],
         category_ids: []
       )
+    end
+
+    def add_community(community_ids)
+      if community_ids != nil
+        @new_community = Community.create(name: 'un site me creó')
+        @new_community.save
+      end
+
     end
 end

@@ -3,7 +3,11 @@
 
 .sites
   .bg-bar-site
-    %h1.text-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+    .d-flex.justify-content-around.mt-2
+      %h1.text-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+      %h1.text-center.link-white
+        %em.fa.fa-map-marked-alt
+        %em= link_to t('site.register_a_site'), new_site_path, class: 'btn link-white'
   %p#notice= notice
 
   .d-flex.justify-content-center

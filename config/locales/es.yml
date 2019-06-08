@@ -29,3 +29,6 @@ es:
     remember_me: Recordarme
     login: Iniciar Sesión
     forget_password: Olvidó la contraseña?
+  site:
+    register_a_site: Registrar un sitio
+    register_form: Formulario de Registro

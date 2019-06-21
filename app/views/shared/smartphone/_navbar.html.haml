@@ -4,16 +4,16 @@
     .container.d-flex.justify-around
       .col-4.text-center.d-flex.align-items-center.justify-content-start
         = link_to '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal", "data-toggle"=>"modal", "data-target"=>"#maulProjectModal" do
-          %i.fa.fa-bars.fa-2x
+          %i.fa.fa-bars.fa-1x
       .col-4.text-center.d-flex.align-items-center
         .m-home-btn= link_to (image_tag 'base/maul_logo_red_blur.png'), '/', class: 'navbar-brand m-image-logo'
       .col-4.text-center.d-flex.align-items-center.justify-content-end
         - if user_signed_in?
           = link_to '', "data-toggle"=>"modal", "data-target"=>"#profileModal", class: 'm-home-text' do
-            %i.fa.fa-user-edit.fa-2x
+            %i.fa.fa-user-edit.fa-1x
         - else
           =link_to '', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#accountModal" do
-            %i.fa.fa-user.fa-2x
+            %i.fa.fa-user.fa-1x
 
 
   / Modal for Maul Project menu

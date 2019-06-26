@@ -1,6 +1,20 @@
 / Footer
 %footer
-  .panel-footer
+  .maul-footer
+    .maul-footer--logo
+      = image_tag 'base/maul_logo_red_blur.png'
+    .footer-title.text-center
+      MAUL PROJECT
+    .footer-text.text-center.row
+      .col-6.text-right
+        Sobre el proyecto
+      .col-6.text-left
+        Términos y Condiciones
+    .col-12.text-center
+      -# %h6
+      Developed By:
+      %a{:href => "https://github.com/SamZapata", :target => "_blank"} @samzapata
+  -# .maul-footer
     .row
       .container.col-lg-4
         %h5.menu-header MAUL PROJECT

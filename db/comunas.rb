@@ -75,7 +75,7 @@ comunas = [
     name: "Comuna 13",
     about: "La Comuna 13 de Cali está localizada al suroriente del área urbana. La comuna está situada en el Distrito de Aguablanca al suroriente de la ciudad y limita al oriente con la comuna 14, al norte con el área de expansión de la poligonal E, al sur oriente con la comuna 15, al sur comuna 16, al occidente con las comunas 11 y 12.",
     link: 'http://idesc.cali.gov.co/download/mapas_comunas/comuna_13.pdf',
-    map: '<iframe src="https://www.google.com/maps/d/embed?mid=1Edk6XCeKueRf9QECmLBU-hmaSYrSrjKs&hl=es" width="640" height="480"></iframe>'
+    map: '<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Edk6XCeKueRf9QECmLBU-hmaSYrSrjKs" width="640" height="480"></iframe>'
   },
   {
     name: "Comuna 14",

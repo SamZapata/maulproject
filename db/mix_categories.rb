@@ -31,21 +31,21 @@ Category.all.each_with_index do |category, index|
         end
       end
     end
-  # elsif category.ref.match('c')
-  #   Community.all.each_with_index do |community, index|
-  #     COMMUNITY_CATEGORIES.each do |cc|
-  #       if community.name.downcase.match(cc)
-  #         MixCategory.find_or_create_by!(title: category.title, community_id: community.id, category_id: category.id )
-  #       end
-  #     end
-  #   end
-  # elsif category.ref.match('e')
-  #   Event.all.each_with_index do |event, index|
-  #     EVENT_CATEGORIES.each do |ec|
-  #       if event.name.downcase.match(ec) || event.description.downcase.match(ec)
-  #         MixCategory.find_or_create_by!(title: category.title, event_id: event.id, category_id: category.id)
-  #       end
-  #     end
-  #   end
+  elsif category.ref.match('c')
+    Community.all.each_with_index do |community, index|
+      COMMUNITY_CATEGORIES.each do |cc|
+        if community.name.downcase.match(cc)
+          MixCategory.find_or_create_by!(title: category.title, community_id: community.id, category_id: category.id )
+        end
+      end
+    end
+  elsif category.ref.match('e')
+    Event.all.each_with_index do |event, index|
+      EVENT_CATEGORIES.each do |ec|
+        if event.name.downcase.match(ec) || event.description.downcase.match(ec)
+          MixCategory.find_or_create_by!(title: category.title, event_id: event.id, category_id: category.id)
+        end
+      end
+    end
   end
 end

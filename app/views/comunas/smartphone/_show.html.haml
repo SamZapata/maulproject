@@ -30,6 +30,20 @@
         -# = link_to 'Edit', edit_comuna_path(@comuna)
 
       #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
+        .col-12.mt-4
+          %p
+            Estas son algunas de las comunidades que se reunen en la #{@comuna.name.downcase}
+          .card-deck
+            - @comuna.community.each do |c|
+              .card.border-primary
+                -# .card-header.d-flex.align-items-center
+                .card-body
+                  %h3.card-title=link_to c.name, "/communities/#{c.id}/", class: 'link-dark'
+                  .card-text.text-left= c.about.first(80) + '...'
+                  %br
+                  .text-right
+                    .btn.btn-primary= link_to 'saber más', "/communities/#{c.id}/", class: 'link-white'
+      -# #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
         - @comuna.community.each do |c|
           .box-index.card.p-2.mt-4
             %blockquote.blockquote.mb-0

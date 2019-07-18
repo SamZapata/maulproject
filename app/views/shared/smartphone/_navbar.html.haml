@@ -10,7 +10,7 @@
       .col-4.text-center.d-flex.align-items-center.justify-content-end
         - if user_signed_in?
           = link_to '', "data-toggle"=>"modal", "data-target"=>"#profileModal", class: 'm-home-text' do
-            %i.fa.fa-user-edit.fa-1x
+            %i.fa.fa-user-edit.fa-2x
         - else
           =link_to '', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#accountModal" do
             %i.fa.fa-user.fa-2x
@@ -23,7 +23,8 @@
         .modal-header
           %h2#maulProjectModalTitle.modal-title Maul Project
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
         .modal-body.d-flex.flex-column
           .btn-selection__communities.text-center
             = link_to t('mainmenu.communities'), communities_path, class: 'link-white'
@@ -44,7 +45,8 @@
             %span{"aria-hidden" => "true"} ×
         .modal-body.d-flex.flex-column
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
           - if user_signed_in?
             .btn-selection__base.text-center
               = link_to 'Actualizar Perfil', edit_profile_path(current_user.profile.id), class: 'link-white'
@@ -59,7 +61,8 @@
       .modal-content.modal-menu
         .modal-body.d-flex.flex-column
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
           .btn-selection__base.text-center
             =  link_to 'Registrarse', new_user_registration_path, class: 'link-white'
           .btn-selection__base.text-center

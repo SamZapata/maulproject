@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_one :profile
   after_create :create_profile
 
+  has_many :community, class_name: 'Community'
+  has_many :site, class_name: 'Site'
+  has_many :event, class_name: 'Event'
+
   def create_profile
     Profile.create(user: self)
   end

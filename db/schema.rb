@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_014017) do
+ActiveRecord::Schema.define(version: 2019_07_18_024736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.string "twitter"
     t.string "youtube"
     t.bigint "comuna_id"
+    t.integer "user_id"
     t.index ["comuna_id"], name: "index_communities_on_comuna_id"
   end
 
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.string "facebook"
     t.string "other_link"
     t.bigint "comuna_id"
+    t.integer "user_id"
     t.index ["comuna_id"], name: "index_events_on_comuna_id"
   end
 
@@ -132,6 +134,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.string "twitter"
     t.string "youtube"
     t.bigint "comuna_id"
+    t.integer "user_id"
     t.index ["comuna_id"], name: "index_sites_on_comuna_id"
   end
 
@@ -143,8 +146,10 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "site_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["site_id"], name: "index_users_on_site_id"
   end
 
   add_foreign_key "communities", "comunas"
@@ -160,4 +165,5 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
   add_foreign_key "site_mauls", "events"
   add_foreign_key "site_mauls", "sites"
   add_foreign_key "sites", "comunas"
+  add_foreign_key "users", "sites"
 end

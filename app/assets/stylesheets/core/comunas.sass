@@ -33,19 +33,40 @@
         &:hover
           background-color: $red-transparent
 
-  .tabs-comunas
-    font-size: 5% !important
-    margin: 10px
-
   .show-comuna
+    @include font-size(12)
     .breadcrumb
       background-color: $offwhite
+
+    .tab-comunas
+      li
+        a
+          font-size: 100%
+          // @include font-size(12)
+
+  .m
+    &.show-comuna
+      // @include font-size(20)
+      font-size: 100%
+      .breadcrumb
+        background-color: $offwhite
+
+      .tab-comunas
+        li
+          a
+            font-size: 100%
+
+      .tab-content
+        .tab-pane
+          .btn
+            font-size: 100%
 
   .bg-bar-comuna
     width: calc(100vw)
     height: auto
     background-color: $offwhite
     padding: 10px 0
+    @include font-size(10)
 
   .content-by-comuna
     padding: 0 1.1rem

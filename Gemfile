@@ -41,6 +41,7 @@ gem 'haml'
 
 # manage users
 gem 'devise'
+gem 'devise-i18n'
 # device detector
 gem 'device_detector'
 # Use Capistrano for deployment

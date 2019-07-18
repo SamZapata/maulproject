@@ -2,21 +2,4 @@
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
 .sites
-  .bg-bar-site
-    .container.d-flex.justify-content-between.mt-2
-      %h5.d-flex.align-items-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
-      %h6.d-flex.align-items-center
-        %em.link-white.fa.fa-map-marked-alt.mr-2
-        %em= link_to t('site.register_a_site'), new_site_path, class: 'link-white'
-  %p#notice= notice
-
-  .d-flex.justify-content-center
-    %ul#tabSites.nav.nav-tabs{:role => "tablist"}
-      %li.nav-item
-        %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab"} Todos
-      %li.nav-item
-        %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab"} Categorías
-      %li.nav-item
-        %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab"} Comunas
-
   = render "sites/#{type}/index"

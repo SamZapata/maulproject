@@ -33,16 +33,30 @@
         &:hover
           background-color: $red-transparent
 
-  .tabs-sites
-    font-size: 10% !important
-    margin: 10px
+  .tab-sites
+    // font-size: 10% !important
+    background-color: lighten($dark, 20)
 
   .show-site
     .breadcrumb
       background-color: $red
+      margin-bottom: 0
+  .new-site
+    .breadcrumb
+      background-color: $red
+      margin-bottom: 0
 
   .bg-bar-site
     width: calc(100vw)
     height: auto
     background-color: $red
     padding: 10px 0
+
+  .link-site
+    color: $dark
+    &:hover
+      color: $red
+
+  form
+    input
+      width: 100%

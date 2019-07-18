@@ -14,11 +14,11 @@
         - if user_signed_in?
           %li.nav-item.dropdown
             -# .nav-link= link_to current_user.email, '#', id: 'dropdownOptions', class: 'dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'
-            %a.nav-link.dropdown-toggle{:href => "#", id: 'dropdownOptions', "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"true"} Mi Cuenta
+            %a.nav-link.dropdown-toggle{:href => "#", id: 'dropdownOptions', "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"true", class: 'link-dropdown-menu'} Mi Cuenta
             %ul.dropdown-menu{"aria-labelledby"=>"dropdownOptions"}
-              %li.dropdown-item= link_to 'Actualizar Perfil', edit_profile_path(current_user.profile.id)
+              %li.dropdown-item= link_to 'Actualizar Perfil', edit_profile_path(current_user.profile.id), class: 'link-dropdown'
               -# %li.dropdown-item= link_to 'Modificar la cuenta', edit_user_registration_path
-              %li.dropdown-item= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete
+              %li.dropdown-item= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: 'link-dropdown'
         - else
           %li.nav-item
             .nav-link= link_to 'Registrarse', new_user_registration_path

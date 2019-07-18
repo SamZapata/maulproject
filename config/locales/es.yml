@@ -29,6 +29,14 @@ es:
     remember_me: Recordarme
     login: Iniciar Sesión
     forget_password: Olvidó la contraseña?
+  community:
+    create_a_community: Crear una comunidad
+    register_a_community: Registrar una comunidad
+    register_form: Formulario de Registro
+  event:
+    create_a_event: Crear un evento
+    register_a_event: Registrar un evento
+    register_form: Formulario de Registro
   site:
     register_a_site: Registrar un sitio
     register_form: Formulario de Registro

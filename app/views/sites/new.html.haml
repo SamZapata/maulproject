@@ -2,5 +2,17 @@
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
 .sites
-  .maul-new-site
-    = render "sites/#{type}/new"
+  .new-site
+    -# = render "sites/#{type}/new"
+    %nav{"aria-label" => "breadcrumb"}
+      .bg-bar-site
+        .container
+          %ol.breadcrumb
+            %li.breadcrumb-item
+              %a.link-white{:href => "/"}
+                %i.fas.fa-home
+            %li.breadcrumb-item
+              %a.link-white{:href => sites_path}= t('base.sites')
+            %li.breadcrumb-item.active{"aria-current" => "page"} Registrar un sitio
+
+    = render 'form'

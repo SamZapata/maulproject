@@ -1,15 +1,33 @@
-#tabCommunitiesContent.tab-content
-  #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
-    .content.col-12
-      .card-columns
-        - @communities.each do |community|
-          .box-index.card.p-2.mt-5
-            %blockquote.blockquote.mb-0
-              .card-body.bg-card
-                = image_tag 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg', width: '50%'
-                =link_to community.name, community, class: 'card-title'
-              %footer
-                .text-right temática 1, temática 2...
+.index-communities
+  .bg-bar-community
+    .container.d-flex.justify-content-between.mt-2
+      %h5.d-flex.align-items-center= link_to t('base.communities'), communities_path, alt: 'index communities', class: 'link-white'
+      %h6.d-flex.align-items-center
+        %em.link-white.fa.fa-users.mr-2
+        %em= link_to t('community.register_a_community'), new_community_path, class: 'link-white'
+  %p#notice= notice
 
-  #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
-  #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...
+  .d-flex.justify-content-center
+    %ul#tabCommunities.nav.nav-tabs{:role => "tablist"}
+      %li.nav-item
+        %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab", class: 'link-community' } Todas
+      %li.nav-item
+        %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab", class: 'link-community' } Categorías
+      %li.nav-item
+        %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab", class: 'link-community' } Comunas
+
+  #tabCommunitiesContent.tab-content
+    #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
+      .container
+        .card-columns
+          - @communities.each do |community|
+            .box-index.card.p-2.mt-5
+              %blockquote.blockquote.mb-0
+                .card-body.bg-card
+                  = image_tag 'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg', width: '50%'
+                  =link_to community.name, community, class: 'card-title'
+                %footer
+                  .text-right temática 1, temática 2...
+
+    #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
+    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...

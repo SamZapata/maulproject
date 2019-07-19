@@ -13,12 +13,12 @@
                 %i.fas.fa-home
             %li.breadcrumb-item
               %a.link-white{:href => sites_path}= t('base.sites')
-            %li.breadcrumb-item.active{"aria-current" => "page"} Registrar un sitio
+            %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name.capitalize
 
-    - if user_signed_in?
+    - if user_signed_in? && current_user == @site.user
       = render 'form'
     - else
       .container
         %br
         %h2.text-center
-          Para registrar un sitio primero debes iniciar sesión!
+          Eres el creador de este sitio?

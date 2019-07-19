@@ -1,0 +1,55 @@
+-# .bg-bar-event
+  .container
+    %h2.text-left.link-white
+      = link_to t('base.events'), events_path, alt: 'index events', class: 'link-white'
+    -# %h2.text-left.link-white= t('event.register_form')
+
+.container.d-flex.flex-column
+  %br
+  %h2.text-center Completa los campos para crear un evento
+  %br
+  .card
+    .card-body.needs-validation.text-center
+      - event = @event
+      -# = form_for(model: event, local: true) do |form|
+      = simple_form_for @event, url: events_path(@event) do |f|
+        - if event.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(event.errors.count, "error")
+              prohibited this event from being saved:
+            %ul
+              - event.errors.full_messages.each do |message|
+                %li= message
+        .form-group
+          %em
+            .text-left= f.label 'Nombre del Evento'
+          = f.input :name, label: false
+        %br
+
+        .form-group
+          %em
+            .text-left= f.label 'Describe de que se trata tu evento'
+          = f.input :description, label: false
+        %br
+
+        .form-group
+          %em
+            .text-left= f.label 'Fecha del evento'
+          = f.input :start_date, label: false
+        %br
+
+        .form-group
+          %em
+            .text-left= f.label 'Perfil del evento en facebook'
+          = f.input :facebook, label: false
+        %br
+
+        .form-group
+          %em
+            .text-left= f.label '¿En que comuna queda se hará este evento?'
+          = f.input :comuna_id, collection: Comuna.all.collect, label: false
+        %br
+
+        .actions
+          = f.submit 'Crear Evento', class: 'btn btn-dark'

@@ -41,9 +41,16 @@
   .show-community
     .breadcrumb
       background-color: $navy
+      margin-bottom: 0
+      font-size: 1.1rem
+  .new-community
+    .breadcrumb
+      background-color: $navy
+      margin-bottom: 0
+      font-size: 1.1rem
 
   .bg-bar-community
-    width: calc(100vw)
+    width: auto
     height: auto
     padding: 10px 0
     background-color: $navy
@@ -52,3 +59,13 @@
     color: $dark
     &:hover
       color: $navy
+
+  form
+    &.simple_form
+      .form-group
+        input
+          width: 100% !important
+        textarea
+          width: 100%
+        select
+          width: 100%

@@ -23,12 +23,12 @@
                 %li= message
         .form-group
           %em
-            .text-left= f.label 'Nombre'
+            .text-left= f.label 'Nombre del Sitio'
           = f.input :name, label: false
         %br
         .form-group
           %em
-            .text-left= f.label 'Dirección'
+            .text-left= f.label 'Dirección del lugar'
           = f.input :address, label: false
         %br
         .form-group
@@ -46,12 +46,17 @@
             .text-left= f.label 'Describe que se puede encontrar en este lugar'
           = f.input :about, label: false
         %br
-        .form-check
+        .form-group
+          %em
+            .text-left= f.label '¿En que comuna queda este sitio?'
+          = f.input :comuna_id, collection: Comuna.all.collect, label: false
+        %br
+        -# .form-check
           %em
             .text-left= f.label 'Puedes seleccionar que comunidades se reunen en este lugar'
           %hr
           .col-10.thumbnail
-            .form-check-input.position-static= f.input :community_ids, as: :check_boxes, collection: Community.all, class: 'form-check-input position-static', label: false
-          -# = f.input :community_ids, Community.all, :id, :name
+            -# .form-check-input.position-static= f.input :community_ids, as: :check_boxes, collection: Community.all.collect, class: 'form-check-input position-static', label: false
+          -# = f.select(:comuna_id, Comuna.all.collect {|a| [a.name, a.id]},{prompt: 'seleccione una comuna'},{} )
         .actions
           = f.submit 'Crear Sitio', class: 'btn btn-dark'

@@ -12,6 +12,7 @@
   .container
     %p#notice= notice
     %h2.text-left= @site.name
+    = image_tag(@site.picture, width: 200) if @site.picture.attached?
     %p
       %strong About:
       = @site.about

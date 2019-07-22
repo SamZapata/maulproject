@@ -58,6 +58,12 @@ gem 'selectize-rails'
 # internationalization
 gem 'rails-i18n'
 
+# attach images
+gem 'cloudinary'
+
+# google cloud storage
+gem "google-cloud-storage", "~> 1.8", require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

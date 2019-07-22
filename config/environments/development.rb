@@ -65,4 +65,7 @@ Rails.application.configure do
   config.i18n.available_locales = ['es-CO', :es, :en]
   config.default = :es
 
+  # google cloud storage
+  config.active_storage.service = :google_dev
+
 end

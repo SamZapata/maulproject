@@ -48,6 +48,11 @@
         %br
         .form-group
           %em
+            .text-left= f.label 'Agrega una imagen representativa del sitio'
+          = f.file_field :picture, label: false
+        %br
+        .form-group
+          %em
             .text-left= f.label '¿En que comuna queda este sitio?'
           = f.input :comuna_id, collection: Comuna.all.collect, label: false
         %br

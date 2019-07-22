@@ -64,6 +64,9 @@ gem 'cloudinary'
 # google cloud storage
 gem "google-cloud-storage", "~> 1.8", require: false
 
+# Add friendly slug
+gem 'friendly_id', '~> 5.2.4'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

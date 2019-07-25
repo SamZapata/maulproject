@@ -1,23 +1,34 @@
+-# show site mobile version
+-# author: Johnny Zapata
 
--# %nav{"aria-label" => "breadcrumb"}
-  .breadcrumb.bg-primary
-    .container
-      %ol.breadcrumb.bg-primary
-        -# %li.breadcrumb-item
-          %a.link-dark{:href => "/"}
-            %i.fas.fa-home
-        %li.breadcrumb-item
-          %a.link-dark{:href => sites_path}= t('base.sites')
-        -# %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
 .show-site
   .bg-bar-site
     .container
       %h2.text-left.link-white= @site.name
 
-  .container
+  .content-site
+    / site image
+    = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image '
     %p#notice= notice
+
+
+
+
+
+
+
+
+
+-# ----------------------------------------------------
+-# .show-site
+  .bg-bar-site
+    .container
+      %h2.text-left.link-white= @site.name
+
+  .container
     / site image
     = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image ', width: '50%'
+    %p#notice= notice
 
     - missingData = []
     %p

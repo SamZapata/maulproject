@@ -1,0 +1,53 @@
+-# .bg-bar-community
+  .container
+    %h2.text-left.link-white
+      = link_to t('base.communities'), communities_path, alt: 'index communities', class: 'link-white'
+    -# %h2.text-left.link-white= t('community.register_form')
+
+.container.d-flex.flex-column
+  %br
+  %h2.text-center Completa los campos para registrar una nueva comunidad
+  %br
+  .card
+    .card-body.needs-validation.text-center
+      - community = @community
+      -# = form_for(model: community, local: true) do |form|
+      = simple_form_for @community, url: communities_path(@community) do |f|
+        - if community.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(community.errors.count, "error")
+              prohibited this community from being saved:
+            %ul
+              - community.errors.full_messages.each do |message|
+                %li= message
+        .form-group
+          %em
+            .text-left= f.label 'Nombre de la Comunidad'
+          = f.input :name, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Teléfono'
+          = f.input :phone, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Describe que se puede encontrar en este lugar'
+          = f.input :about, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Agrega una imagen representativa del comunidad'
+          = f.file_field :picture, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label '¿En que comuna queda este comunidad?'
+          = f.input :comuna_id, collection: Comuna.all.collect, label: false
+        %br
+        -# .form-check
+          %em
+            .text-left= f.label 'Puedes seleccionar que comunidades se reunen en este lugar'
+          %hr
+          .col-10.thumbnail

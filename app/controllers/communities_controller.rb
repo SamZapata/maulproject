@@ -12,6 +12,7 @@ class CommunitiesController < ApplicationController
   # GET /communities/1
   # GET /communities/1.json
   def show
+    @community = Community.friendly.find(params[:id])
   end
 
   # GET /communities/new
@@ -30,7 +31,7 @@ class CommunitiesController < ApplicationController
 
     respond_to do |format|
       if @community.save
-        format.html { redirect_to @community, notice: 'Community was successfully created.' }
+        format.html { redirect_to @community, notice: 'La comunidad se creo satisfactoriamente' }
         format.json { render :show, status: :created, location: @community }
       else
         format.html { render :new }
@@ -71,6 +72,6 @@ class CommunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :about, :address, :phone, :email, :facebook, :instagram, :twitter, :website, :comuna_id)
+      params.require(:community).permit(:name, :about, :address, :phone, :email, :facebook, :instagram, :twitter, :website, :comuna_id, :picture)
     end
 end

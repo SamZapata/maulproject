@@ -42,7 +42,8 @@ class SitesController < ApplicationController
   # PATCH/PUT /sites/1
   # PATCH/PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
+    # @site = Site.find(params[:id])
+    @site = Site.friendly.find(params[:id])
     respond_to do |format|
       if @site.update(site_params)
         format.html { redirect_to @site, notice: 'El sitio fué actualizado satisfactoriamente.' }

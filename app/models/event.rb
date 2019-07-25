@@ -11,4 +11,8 @@ class Event < ApplicationRecord
 
   has_many :mix_categories
   has_many :categories, through: :mix_categories
+
+  # upload images
+  has_one_attached :picture
+  
 end

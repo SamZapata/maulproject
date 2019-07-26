@@ -61,6 +61,13 @@
           %em
             .text-left= f.label 'Twitter'
           = f.input :twitter, label: false
+
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Agrega una imagen representativa de la comunidad'
+          = f.file_field :picture, label: false
+
         %br
         .form-group
           %em

@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   belongs_to :comuna, class_name: 'Comuna', optional: true
   belongs_to :user, class_name: 'User', optional: true
 
@@ -14,5 +17,5 @@ class Event < ApplicationRecord
 
   # upload images
   has_one_attached :picture
-  
+
 end

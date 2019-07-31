@@ -6,10 +6,25 @@
     .container
       %h2.text-left.link-white= @site.name
 
-  .content-site
+  -# .content-site
     / site image
     = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image '
     %p#notice= notice
+  .container
+    %p#notice= notice
+    %h1.mt-3.text-left= @site.name
+    %hr.mb-1
+    .site-networks-section.mb-1
+      %i
+        = image_tag 'icons/webpage.svg'
+      %i
+        = image_tag 'icons/facebook.svg'
+      %i
+        = image_tag 'icons/instagram.svg'
+      %i
+        = image_tag 'icons/twitter.svg'
+      %i
+        = image_tag 'icons/youtube.svg'
 
 
 

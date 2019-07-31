@@ -11,7 +11,14 @@
           %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
   .container
     %p#notice= notice
-    %h2.text-left= @site.name
+    %h1.mt-3.text-left= @site.name
+    %hr
+    .site-networks-section
+      .webpage
+      .facebook
+      .instagram
+      .twitter
+      .youtube
     = image_tag(@site.picture, width: 200) if @site.picture.attached?
     %p
       %strong About:

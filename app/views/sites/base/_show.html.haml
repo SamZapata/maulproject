@@ -9,11 +9,11 @@
           %li.breadcrumb-item
             %a.link-white{:href => sites_path}= t('base.sites')
           %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
-  .container
+  .container.text-center
     %p#notice= notice
-    %h1.mt-3.text-left= @site.name
+    %h1.mt-3= @site.name
     %hr.mb-2
-    .site-networks-section.mb-1
+    .site-networks-section
       %i
         = image_tag 'icons/webpage.svg'
       %i
@@ -24,23 +24,54 @@
         = image_tag 'icons/twitter.svg'
       %i
         = image_tag 'icons/youtube.svg'
-      .webpage
-      .facebook
-      .instagram
-      .twitter
-      .youtube
-    = image_tag(@site.picture, width: 200) if @site.picture.attached?
-    %p
-      %strong About:
-      = @site.about
-    %p
-      %strong Address:
-      = @site.address
-    %p
-      %strong Phone:
-      = @site.phone
-    .d-flex.justify-content-center
+    .mt-3= image_tag(@site.picture, width: 200) if @site.picture.attached?
+    .mt-3.card
+      .card-body.text-left
+        %strong= t('base.description')
+        %p
+          = @site.about
+        %p
+          %strong= t('site.address') + ': '
+          = @site.address
+        %p
+          %strong= t('site.phone') + ': '
+          = @site.phone
+
+    .mt-3.d-flex.justify-content-center
       %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
+
+    .mt-3.card
+      .card-body
+        .d-flex.justify-content-center
+          %ul#tabSitesRelation.nav.nav-tabs{:role => "tablist"}
+            %li.nav-item
+              %a#communities-tab.nav-link.active{"aria-controls" => "data", "aria-selected" => "true", "data-toggle" => "tab", :href => "#communities", :role => "tab", class: 'link-dark'}= t('base.communities')
+            %li.nav-item
+              %a#events-tab.nav-link{"aria-controls" => "events", "aria-selected" => "false", "data-toggle" => "tab", :href => "#events", :role => "tab", class: 'link-dark'}= t('base.events')
+        #tabSitesRelation.tab-content
+          #communities.tab-pane.fade.show.active{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
+            .text-left Comunidades que aquí se reunen:
+            - if @site.communities.count != 0
+              .text-left
+                - @site.communities.each do |community|
+                  = link_to "/communities/#{community.slug}", class: 'link-dark' do
+                    .fa.fa-users
+                    = community.name
+                  %br
+            - else
+              Aún no hay comunidades asociadas a este sitio
+
+          #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"}
+            .text-left Eventos que se realizan aquí:
+            - if @site.events.count != 0
+              .text-left
+                - @site.events.each do |event|
+                  = link_to "/events/#{event.id}", class: 'link-dark' do
+                    .fa.fa-calendar-alt
+                    = event.name
+            - else
+              Aún no hay eventos asociados a este sitio
+
     = link_to 'Edit', edit_site_path(@site)
     |
     = link_to 'Back', sites_path

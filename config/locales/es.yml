@@ -1,6 +1,7 @@
 ---
 es:
   base:
+    description: Descripción
     home: Inicio
     login: Iniciar Sesión
     communities: Comunidades
@@ -38,6 +39,8 @@ es:
     register_a_event: Registrar un evento
     register_form: Formulario de Registro
   site:
+    address: Dirección
+    phone: Teléfono
     register_a_site: Registrar un sitio
     register_form: Formulario de Registro
 

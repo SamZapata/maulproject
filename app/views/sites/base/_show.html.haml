@@ -11,6 +11,10 @@
           %li.breadcrumb-item.active{"aria-current" => "page"}= @site.name
   .container.text-center
     %p#notice= notice
+    - if user_signed_in? && current_user.id == @site.user_id
+      .show-site-edit
+        = link_to edit_site_path(@site), class: 'link-dark' do
+          %i.fa.fa-edit
     %h1.mt-3= @site.name
     %hr.mb-2
     .site-networks-section
@@ -71,7 +75,3 @@
                     = event.name
             - else
               Aún no hay eventos asociados a este sitio
-
-    = link_to 'Edit', edit_site_path(@site)
-    |
-    = link_to 'Back', sites_path

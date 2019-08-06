@@ -13,14 +13,14 @@
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email"
           .field
-            = f.label I18n.t("user.password"), for:'validationTooltip01'
+            = f.label I18n.t("user.password") #for:'validationTooltip01'
             - if @minimum_password_length
               %em
                 (mínimo #{@minimum_password_length} caracteres)
             %br/
             = f.password_field :password, autocomplete: "new-password"
           .field
-            = f.label I18n.t("user.confirm_password"), for:'validationTooltip01'
+            = f.label I18n.t("user.confirm_password") #for:'validationTooltip01'
             %br/
             = f.password_field :password_confirmation, autocomplete: "new-password"
           .actions

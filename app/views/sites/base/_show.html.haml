@@ -18,16 +18,7 @@
     %h1.mt-3= @site.name
     %hr.mb-2
     .site-networks-section
-      %i
-        = image_tag 'icons/webpage.svg'
-      %i
-        = image_tag 'icons/facebook.svg'
-      %i
-        = image_tag 'icons/instagram.svg'
-      %i
-        = image_tag 'icons/twitter.svg'
-      %i
-        = image_tag 'icons/youtube.svg'
+      = networks_section @site
     .mt-3= image_tag(@site.picture, width: 200) if @site.picture.attached?
     .mt-3.card
       .card-body.text-left
@@ -58,7 +49,8 @@
             - if @site.communities.count != 0
               .text-left
                 - @site.communities.each do |community|
-                  = link_to "/communities/#{community.slug}", class: 'link-dark' do
+                  - community.slug == nil ? slug = community.id : slug = community.slug
+                  = link_to "/communities/#{slug}", class: 'link-dark' do
                     .fa.fa-users
                     = community.name
                   %br

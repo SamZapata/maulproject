@@ -28,13 +28,13 @@
         %br
         .form-group
           %em
-            .text-left= f.label 'Dirección del lugar'
-          = f.input :address, label: false
+            .text-left= f.label 'Describe que se puede encontrar en este lugar'
+          = f.input :about, label: false
         %br
         .form-group
           %em
-            .text-left= f.label 'Mapa embebido de google'
-          = f.input :map, label: false
+            .text-left= f.label 'Dirección del lugar'
+          = f.input :address, label: false
         %br
         .form-group
           %em
@@ -43,8 +43,30 @@
         %br
         .form-group
           %em
-            .text-left= f.label 'Describe que se puede encontrar en este lugar'
-          = f.input :about, label: false
+            .text-left= f.label 'Mapa embebido de google'
+          = f.input :map, label: false
+
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de facebook'
+          = f.input :facebook, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de twitter'
+          = f.input :twitter, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de instagram'
+          = f.input :instagram, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de youtube'
+          = f.input :youtube, label: false
+
         %br
         .form-group
           %em

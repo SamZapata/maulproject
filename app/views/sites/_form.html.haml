@@ -12,7 +12,7 @@
     .card-body.needs-validation.text-center
       - site = @site
       -# = form_for(model: site, local: true) do |form|
-      = simple_form_for @site, url: site_path(@site) do |f|
+      = simple_form_for @site do |f|
         - if site.errors.any?
           #error_explanation
             %h2

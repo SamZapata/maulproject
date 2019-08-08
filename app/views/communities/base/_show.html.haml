@@ -9,9 +9,14 @@
           %li.breadcrumb-item
             %a.link-white{:href => communities_path}= t('base.communities')
           %li.breadcrumb-item.active{"aria-current" => "page"}= @community.name
-  .container
+  .container.text-center
     %p#notice= notice
-    %h2.text-left= @community.name
+    -# %h2.text-left= @community.name
+    %h1.mt-3= @community.name
+    %hr.mb-2
+    .community-networks-section
+      = networks_section @community
+    .mt-3= image_tag(@community.picture, width: 200) if @community.picture.attached?
     %p
       %strong About:
       = @community.about

@@ -12,7 +12,6 @@ class CommunitiesController < ApplicationController
   # GET /communities/1
   # GET /communities/1.json
   def show
-    @community = Community.friendly.find(params[:id])
   end
 
   # GET /communities/new
@@ -67,11 +66,11 @@ class CommunitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_community
-      @community = Community.find(params[:id])
+      @community = Community.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :about, :address, :phone, :email, :facebook, :instagram, :twitter, :website, :comuna_id, :picture)
+      params.require(:community).permit(:name, :about, :address, :phone, :email, :facebook, :instagram, :twitter, :youtube, :website, :comuna_id, :picture)
     end
 end

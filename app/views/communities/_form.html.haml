@@ -12,7 +12,7 @@
     .card-body.needs-validation.text-center
       - community = @community
       -# = form_for(model: community, local: true) do |form|
-      = simple_form_for @community, url: communities_path(@community) do |f|
+      = simple_form_for @community do |f|
         - if community.errors.any?
           #error_explanation
             %h2
@@ -45,6 +45,11 @@
           %em
             .text-left= f.label 'Correo Electrónico'
           = f.input :email, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Sitio Web'
+          = f.input :website, label: false
 
         %br
         .form-group
@@ -61,18 +66,17 @@
           %em
             .text-left= f.label 'Twitter'
           = f.input :twitter, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Youtube'
+          = f.input :youtube, label: false
 
         %br
         .form-group
           %em
             .text-left= f.label 'Agrega una imagen representativa de la comunidad'
           = f.file_field :picture, label: false
-
-        %br
-        .form-group
-          %em
-            .text-left= f.label 'Sitio Web'
-          = f.input :website, label: false
 
         %br
         .form-group
@@ -88,4 +92,4 @@
             -# .form-check-input.position-static= f.input :community_ids, as: :check_boxes, collection: Community.all.collect, class: 'form-check-input position-static', label: false
           -# = f.select(:comuna_id, Comuna.all.collect {|a| [a.name, a.id]},{prompt: 'seleccione una comuna'},{} )
         .actions
-          = f.submit 'Crear Comunidad', class: 'btn btn-dark'
+          = f.submit 'Aceptar', class: 'btn btn-dark'

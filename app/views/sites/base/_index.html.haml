@@ -24,7 +24,10 @@
             .box-index.card.p-2.mt-5
               %blockquote.blockquote.mb-0
                 .card-body.bg-card
-                  = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                  - if site.picture.attached?
+                    = image_tag site.picture
+                  - else
+                    = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
                   =link_to site.name, site, class: 'card-title'
                 %footer
                   .text-right temática 1, temática 2...

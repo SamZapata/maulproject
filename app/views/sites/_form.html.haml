@@ -12,7 +12,7 @@
     .card-body.needs-validation.text-center
       - site = @site
       -# = form_for(model: site, local: true) do |form|
-      = simple_form_for @site, url: sites_path(@site) do |f|
+      = simple_form_for @site, url: site_path(@site) do |f|
         - if site.errors.any?
           #error_explanation
             %h2
@@ -86,4 +86,4 @@
             -# .form-check-input.position-static= f.input :community_ids, as: :check_boxes, collection: Community.all.collect, class: 'form-check-input position-static', label: false
           -# = f.select(:comuna_id, Comuna.all.collect {|a| [a.name, a.id]},{prompt: 'seleccione una comuna'},{} )
         .actions
-          = f.submit 'Crear Sitio', class: 'btn btn-dark'
+          = f.submit 'Aceptar', class: 'btn btn-dark'

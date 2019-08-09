@@ -22,7 +22,7 @@
     .mt-3= image_tag(@site.picture, width: 200) if @site.picture.attached?
     .mt-3.card
       .card-body.text-left
-        %strong= t('base.description')
+        %strong= t('site.about_site')
         %p
           = @site.about
         %p

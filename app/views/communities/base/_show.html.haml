@@ -17,18 +17,42 @@
     .community-networks-section
       = networks_section @community
     .mt-3= image_tag(@community.picture, width: 200) if @community.picture.attached?
-    %p
-      %strong About:
-      = @community.about
-    %p
-      %strong Address:
-      = @community.address
-    %p
-      %strong Phone:
-      = @community.phone
-    %p
-      %strong Email:
-      = @community.email
+    .mt-3.card
+      .card-body.text-left
+        %strong= t('community.about_community')
+        %p
+          = @community.about
+
+        - if @community.maul_plans.count > 0
+          %em ¿Dónde nos reunimos?
+          %p
+            - @community.maul_plans.each do |community_site|
+              = link_to community_site.site.name, community_site.site
+              %br
+        - elsif @community.address.present?
+          %em ¿Dónde nos reunimos?
+          %p= @community.address
+
+        - if @community.phone.present?
+          %em Teléfono(s) de contacto:
+          %p= @community.phone
+
+        - if @community.email.present?
+          %em correo electrónico:
+          %p= @community.email
+
+    .mt-3.card
+      .card-body
+        %strong Eventos que realizamos
+        - if @community.community_mauls.count <= 0
+          %p Lo sentimos, esta comunidad aún no ha registrado ningún evento!
+        - else
+          - @community.community_mauls.each do |maul|
+            .jumbotron.text-left
+              %strong= link_to maul.event.name, maul.event
+              %br
+              %em= maul.event.start_date.to_formatted_s(:long)
+
     = link_to 'Edit', edit_community_path(@community)
     |
     = link_to 'Back', communities_path

@@ -10,10 +10,11 @@ communities = [
     facebook: "https://www.facebook.com/usantiagodecali/",
     instagram: "https://www.instagram.com/usantiagodecali/",
     twitter: "https://twitter.com/usantiagodecali",
-    comuna_id: 19
+    comuna_id: 19,
+    image: 'images/com-1'
   },
   {
-    name: "Somos Lobos Rugby",
+    name: "Somos Lobos - Rugby",
     about: "Somos la comunidad de Lobos Rugby Club",
     email: "",
     website: "",
@@ -21,7 +22,8 @@ communities = [
     facebook: "https://www.facebook.com/LobosRC/",
     instagram: "https://www.instagram.com/lobos_rugbyclub/",
     twitter: "https://twitter.com/LobosRugbycali",
-    comuna_id: 19
+    comuna_id: 19,
+    image: 'images/com-2'
   },
   {
     name: "Niños, Niñas, Adolescentes y Jóvenes Gestores de Paz - Cali",
@@ -32,7 +34,8 @@ communities = [
     facebook: "",
     instagram: "",
     twitter: "https://twitter.com/SoyGestordePaz",
-    comuna_id: 14
+    comuna_id: 14,
+    image: 'images/com-3'
   },
   {
     name: "Distrito Rugby",
@@ -43,7 +46,8 @@ communities = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    image: 'images/com-4'
   },
   {
     name: "Rugby Valle",
@@ -54,7 +58,8 @@ communities = [
     facebook: "https://www.facebook.com/LVRrugby/?epa=SEARCH_BOX",
     instagram: "https://www.instagram.com/rugbyvalle/",
     twitter: "https://twitter.com/LVR_rugby",
-    comuna_id: 19
+    comuna_id: 19,
+    image: 'images/com-5'
   },
   # {
   #   name: "",

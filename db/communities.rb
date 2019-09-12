@@ -69,7 +69,8 @@ communities = [
     phone: "311 3007050",
     facebook: "https://www.facebook.com/SultanesRugby/",
     instagram: "https://www.instagram.com/sultanes_rc/",
-    twitter: ""
+    twitter: "",
+    comuna_id: 18,
   },
   {
     name: "Buziracas Rugby",
@@ -79,7 +80,8 @@ communities = [
     phone: "",
     facebook: "https://www.facebook.com/buziracasrugbyclub/",
     instagram: "https://www.instagram.com/buziracas_rugby/",
-    twitter: ""
+    twitter: "",
+    comuna_id: 17,
   },
   {
     name: "Phalanx rugby",
@@ -89,7 +91,8 @@ communities = [
     phone: "316 4212096",
     facebook: "https://www.facebook.com/Phalanxrc/",
     instagram: "https://www.instagram.com/phalanxrugbyclub/",
-    twitter: ""
+    twitter: "",
+    comuna_id: 17,
   },
   {
     name: "Tikunas Rugby",
@@ -99,7 +102,8 @@ communities = [
     phone: "318 4031176",
     facebook: "https://www.facebook.com/TikunasRugbyClubCali/",
     instagram: "https://www.instagram.com/tikunasrugby/",
-    twitter: ""
+    twitter: "",
+    comuna_id: 19,
   },
   {
     name: "Amapolas rugby",
@@ -109,7 +113,52 @@ communities = [
     phone: "3173227172",
     facebook: "https://www.facebook.com/Amapolas-Buziracos-Rugby-Club-266240000248634/?__xts__[0]=68.ARBIAv6e1KFrX8KjDFq_vcWJkF_izQp_8cNwSgct2p4-_VDeea4gMVbbqDwuTJOi-AMAvFM9KjwUDjLED--P_MpdnNOTNLYWqEf1rPMYg5j8gF2v7WsRlmnXAUzgeU7pN4yyX9Y20SCzXzQLl-FrH0Q9gh3wMZP6lmZA-kl4Kj49QjBtBga5UoFn4FBznpb9tpeAwoZDzXgMg3KgLXKJj8CwcISVlb3Fmulp1bSFTT4uYyJjAXq7LgCKjNKd_OwULM1GmlJn-oTe",
     instagram: "https://www.instagram.com/amapolasrc/?hl=bg",
-    twitter: ""
+    twitter: "",
+    comuna_id: 5,
+  },
+  {
+    name: "El Bochinche",
+    about: "Somos una organización de líderes, organizaciones e iniciativas juveniles; la cual busca el empoderamiento de niños, niñas, adolescentes y jovenes a través de la cultura, sexualidad, derechos humanos, medio ambiente y liderazgo para realizar procesos vivenciales de transformación en sus vidas, sus comunidades que generen un impacto positivo en sus territorios. Por medio del proyecto macro llamado Bochinche Por La paz como proceso de intervención e interacción psicosocial en las comunidades.",
+    email: "fundacionbochinche@gmail.com",
+    website: "",
+    phone: "",
+    facebook: "https://www.facebook.com/BOCHINCHEPOR/",
+    instagram: "",
+    twitter: "",
+    comuna_id: 21,
+  },
+  {
+    name: "Sporting Lions Cali",
+    about: "Fomentamos el Fútbol como un deporte donde ayudará a los niños a crecer en buenos hábitos, salud y valores.",
+    email: "sportinglionscolombia@gmail.com",
+    website: "",
+    phone: "317 5736983",
+    facebook: "https://www.facebook.com/sportinglionscolombia/",
+    instagram: "https://www.instagram.com/sportinglionscolombia/",
+    twitter: "",
+    comuna_id: 13,
+  },
+  {
+    name: "Pacífico Futbol Cali",
+    about: "Nos apasiona el futbol y motivamos a que niños, niñas y jóvenes de la comuna 13 de Cali practiquen este deporte como un estilo de vida saludable.",
+    email: "",
+    website: "",
+    phone: "",
+    facebook: "https://www.facebook.com/joseolivarc",
+    instagram: "",
+    twitter: "",
+    comuna_id: 13,
+  },
+  {
+    name: "La Fania Futbol Club",
+    about: "El Club deportivo FANIA FUTBOL CLUB , viene promocionando la formación juvenil desde el componente deportivo con jóvenes del barrio charco azul, donde se benefician un promedio de 100 niños y jóvenes en edades entre 5 a 18 años con el objetivo de cambiar su perspectiva frente a la vida; Permitiendo que ellos sean un ejemplo para la comunidad inculcándoles valores y principios que les permita vivir la vida desde otra aspecto social.",
+    email: "clubdeportivofaniafutbolclub@gmail.com",
+    website: "http://fania-futbol.blogspot.com/",
+    phone: "322 5945499",
+    facebook: "https://www.facebook.com/Club-Deportivo-Fania-Futbol-Club-193323374779886/",
+    instagram: "",
+    twitter: "",
+    comuna_id: 13,
   },
   # {
   #   name: "",
@@ -119,17 +168,8 @@ communities = [
   #   phone: "",
   #   facebook: "",
   #   instagram: "",
-  #   twitter: ""
-  # },
-  # {
-  #   name: "",
-  #   about: "",
-  #   email: "",
-  #   website: "",
-  #   phone: "",
-  #   facebook: "",
-  #   instagram: "",
-  #   twitter: ""
+  #   twitter: "",
+  #   comuna_id: 1,
   # },
 ]
 

@@ -130,13 +130,29 @@ sites = [
     comuna_id: 19
   },
   {
-    name: "",
-    about: "",
-    address: "",
+    name: "Cancha de Futbol de Charco Azul",
+    about: "Cancha de futbol 11 del barrio Charco Azul",
+    address: "Dg 71A1 con Kr 24A",
     phone: "",
-    map: '',
-    link: ""
+    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.3194090951931!2d-76.4889030276578!3d3.4377428000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa66c5f89564f1418!2sDg%2071A%20con%20Kr%2024C!5e0!3m2!1sen!2sco!4v1568248816495!5m2!1sen!2sco" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>',
+    link: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    comuna_id: 13
   },
+  # {
+  #   name: "",
+  #   about: "",
+  #   address: "",
+  #   phone: "",
+  #   map: '',
+  #   link: "",
+  #   facebook: "",
+  #   instagram: "",
+  #   twitter: "",
+  #   comuna_id: 19
+  # },
 ]
 
 Site.create!(sites)

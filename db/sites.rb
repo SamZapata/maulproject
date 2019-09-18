@@ -153,6 +153,18 @@ sites = [
     twitter: "",
     comuna_id: 21
   },
+  {
+    name: "Unidad Recreativa El Diamante",
+    about: "Es un polideportivo disponible para toda la familia. Cuenta con piscina para adultos y piscina para niños, cancha de futbol 11, cancha de futbol sala 5, salon, canchas de baloncesto, parque de recreación y acondicionamiento físico, y espacios para prácticar muchas otras actividades que se realizan.",
+    address: "Cra. 31 #40-4",
+    phone: "",
+    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.6773281223724!2d-76.50215807897311!3d3.420818823270241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a720853915d5%3A0x7f46c41ce018c132!2sCra.%2031%20%2340-4%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses-419!2sco!4v1568768779776!5m2!1ses-419!2sco" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>',
+    website: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    comuna_id: 13
+  },
   # {
   #   name: "",
   #   about: "",

@@ -299,6 +299,18 @@ sites = [
     twitter: "",
     comuna_id: 13
   },
+  {
+    name: "JAC Belisario Betancourt",
+    about: "Sede de la junta de acción comunal del barrio Belisario Betancourt, ubicado en la comuna 13 entre las lagunas de Charco Azul y el Pondaje, que cuenta con más de 25 años de historia y busca ser un lugar legalmente reconocido por el municipio.",
+    address: "",
+    phone: "",
+    map: '',
+    website: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    comuna_id: 13
+  },
   # {
   #   name: "",
   #   about: "",

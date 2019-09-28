@@ -33,4 +33,34 @@
                   .text-right temática 1, temática 2...
 
     #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
-    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...
+    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"}
+      .container
+        .content-carousel
+          #comunaSelector.carousel.slide{ "data-ride" => "carousel" }
+            .carousel-inner.text-center
+              - Comuna.all.each do |comuna|
+                - comuna.name == 'Comuna 13' ? action = 'active' : action = 'common'
+                .carousel-item{ class: action}= comuna.name
+            = link_to '<', {class: 'carousel-control-prev', "data-slide" => "prev", :href => "#comunaSelector", :role => "button"} do
+              %i.fa.fa-chevron-left
+              %span.sr-only Previous
+            = link_to '>', { class: 'carousel-control-next', "data-slide" => "next", :href => "#comunaSelector", :role => "button"} do
+              %i.fa.fa-chevron-right
+              %span.sr-only Next
+
+        .card-columns
+          - @sites.each do |site|
+            -# - if site.comuna_id
+            .box-index.card.p-2.mt-5
+              %blockquote.blockquote.mb-0
+                .card-body.bg-card
+                  - if site.picture.attached?
+                    = image_tag site.picture
+                  - else
+                    = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                  =link_to site.name, site, class: 'card-title'
+                %footer
+                  .text-right temática 1, temática 2...
+
+:javascript
+  MAUL.comunas.carousel.setup();

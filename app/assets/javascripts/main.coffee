@@ -1,9 +1,8 @@
 window.MAUL = {
   comunas:
-    carousel:
+    dropdown:
       setup: ->
-        # console.log $('#comunas.tab-pane').onchange
-        # console.log
+        console.log $('#comunas.tab-pane .dropdown-menu').text()
 
   init: ->
     console.log 'Made by JSAM'

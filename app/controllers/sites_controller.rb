@@ -7,6 +7,11 @@ class SitesController < ApplicationController
     @sites = Site.all
   end
 
+  def load_sites
+    @comuna = Comuna.find(params[:comuna_id])
+    @sites = Site.all
+  end
+
   # GET /sites/1
   # GET /sites/1.json
   def show

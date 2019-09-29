@@ -1,0 +1,5 @@
+var comuna = "<%= @comuna.name  %>"
+// console.log(comuna.name);
+// alert(comuna);
+$('.content-tab-comunas .selected-comuna').html(comuna);
+$('.content-tab-comunas .card-columns').html("<%= j render 'sites/sites_per_comuna', comuna_id: @comuna.id %>")

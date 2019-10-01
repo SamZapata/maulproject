@@ -1,10 +1,25 @@
-- @sites.each do |site|
-  - if site.comuna_id == comuna_id
-    .box-index.card.p-2.mt-5
-      %blockquote.blockquote.mb-0
-        .card-body.bg-card
-          - if site.picture.attached?
-            = image_tag site.picture
-          - else
-            = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
-          =link_to site.name, site, class: 'card-title'
+.mt-3.pt-3.selected-comuna
+  - case @sites.length
+  - when 0
+    .text-center= "#{comuna.name}, lo sentimos aún no hay sitios registrados en esta comuna."
+    .text-center
+      .mt-3 Puedes empezar añadiendo tu lugar favorito!
+      = link_to new_site_path, class: 'link-dark' do
+        %em.fa.fa-map-marked-alt.mr-2
+        %em= t('site.register_a_site')
+  - when 1
+    = "#{comuna.name}, se encontró #{@sites.length} sitio registrado"
+  - else
+    = "#{comuna.name}, se encontraron #{@sites.length} sitios registrados"
+
+.card-columns
+  - @sites.each do |site|
+    - if site.comuna_id == comuna.id
+      .box-index.card.p-2.mt-5
+        %blockquote.blockquote.mb-0
+          .card-body.bg-card
+            - if site.picture.attached?
+              = image_tag site.picture
+            - else
+              = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+            =link_to site.name, site, class: 'card-title'

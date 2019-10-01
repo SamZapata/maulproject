@@ -11,7 +11,7 @@
     %ul#tabSites.nav.nav-tabs{:role => "tablist"}
       %li.nav-item
         %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab", class: 'link-site'} Todos
-      %li.nav-item
+      -# %li.nav-item
         %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab", class: 'link-site'} Categorías
       %li.nav-item
         %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab", class: 'link-site'} Comunas
@@ -19,6 +19,7 @@
   #tabSitesContent.tab-content
     #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
       .container
+        .mt-3.pt-3 Sitios registrados en Maul Project
         .card-columns
           - @sites.each do |site|
             .box-index.card.p-2.mt-5
@@ -29,7 +30,7 @@
                   - else
                     = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
                   =link_to site.name, site, class: 'card-title'
-                %footer
+                -# %footer
                   .text-right temática 1, temática 2...
 
     #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
@@ -46,7 +47,12 @@
                 = link_to comuna.name, load_sites_path(comuna_id: comuna.id), class: 'dropdown-item', remote: true
 
         .content-tab-comunas
-          .selected-comuna Comuna 13
+          .mt-3.pt-3.selected-comuna
+            - com_13 = []
+            - @sites.map do |site|
+              - if site.comuna_id == 13
+                - com_13 << site
+            = "Comuna 13, se encontraron #{com_13.length} sitios registrados"
           .card-columns
             - @sites.each do |site|
               - if site.comuna_id == 13
@@ -58,7 +64,7 @@
                       - else
                         = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
                       =link_to site.name, site, class: 'card-title'
-                    %footer
+                    -# %footer
                       .text-right temática 1, temática 2...
 
 :javascript

@@ -9,7 +9,7 @@ class SitesController < ApplicationController
 
   def load_sites
     @comuna = Comuna.find(params[:comuna_id])
-    @sites = Site.all
+    @sites = Site.where(comuna_id: @comuna)
   end
 
   # GET /sites/1

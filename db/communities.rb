@@ -14,6 +14,7 @@ communities = [
     twitter: "https://twitter.com/usantiagodecali",
     comuna_id: 19,
     user_id: user.id,
+    slug: "Comunidad Santiaguina".parameterize,
     # image: 'images/com-1'
   },
   {
@@ -27,6 +28,7 @@ communities = [
     twitter: "https://twitter.com/LobosRugbycali",
     comuna_id: 19,
     user_id: user.id,
+    slug: "Somos Lobos Rugby".parameterize,
     # image: 'images/com-2'
   },
   {
@@ -40,6 +42,7 @@ communities = [
     twitter: "https://twitter.com/SoyGestordePaz",
     comuna_id: 14,
     user_id: user.id,
+    slug: "Niños, Niñas, Adolescentes y Jóvenes Gestores de Paz - Cali".parameterize,
     # image: 'images/com-3'
   },
   {
@@ -53,6 +56,7 @@ communities = [
     twitter: "",
     comuna_id: 13,
     user_id: user.id,
+    slug: "Distrito Rugby".parameterize,
     # image: 'images/com-4'
   },
   {
@@ -66,6 +70,7 @@ communities = [
     twitter: "https://twitter.com/LVR_rugby",
     comuna_id: 19,
     user_id: user.id,
+    slug: "Rugby Valle".parameterize,
     # image: 'images/com-5'
   },
   {
@@ -79,6 +84,7 @@ communities = [
     twitter: "",
     comuna_id: 18,
     user_id: user.id,
+    slug: "Soy Sultán".parameterize,
   },
   {
     name: "Buziracas Rugby",
@@ -91,6 +97,7 @@ communities = [
     twitter: "",
     comuna_id: 17,
     user_id: user.id,
+    slug: "Buziracas Rugby".parameterize,
   },
   {
     name: "Phalanx rugby",
@@ -103,6 +110,7 @@ communities = [
     twitter: "",
     comuna_id: 17,
     user_id: user.id,
+    slug: "Phalanx rugby".parameterize,
   },
   {
     name: "Tikunas Rugby",
@@ -115,6 +123,7 @@ communities = [
     twitter: "",
     comuna_id: 19,
     user_id: user.id,
+    slug: "Tikunas Rugby".parameterize,
   },
   {
     name: "Amapolas rugby",
@@ -127,6 +136,7 @@ communities = [
     twitter: "",
     comuna_id: 5,
     user_id: user.id,
+    slug: "Amapolas rugby".parameterize,
   },
   {
     name: "El Bochinche",
@@ -139,6 +149,7 @@ communities = [
     twitter: "",
     comuna_id: 21,
     user_id: user.id,
+    slug: "El Bochinche".parameterize,
   },
   {
     name: "Sporting Lions Cali",
@@ -151,6 +162,7 @@ communities = [
     twitter: "",
     comuna_id: 13,
     user_id: user.id,
+    slug: "Sporting Lions Cali".parameterize,
   },
   {
     name: "Pacífico Futbol Cali",
@@ -163,6 +175,7 @@ communities = [
     twitter: "",
     comuna_id: 13,
     user_id: user.id,
+    slug: "Pacífico Futbol Cali".parameterize,
   },
   {
     name: "La Fania Futbol Club",
@@ -175,6 +188,7 @@ communities = [
     twitter: "",
     comuna_id: 13,
     user_id: user.id,
+    slug: "La Fania Futbol Club".parameterize,
   },
   # {
   #   name: "",

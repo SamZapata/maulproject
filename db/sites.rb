@@ -1,4 +1,7 @@
 # seed for sites
+
+user = User.find_by(email: 'jsamzapata@gmail.com')
+
 sites = [
   {
     name: "Universidad Santiago de Cali",
@@ -10,7 +13,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 19
+    comuna_id: 19,
+    user_id: user.id,
+    slug: "Universidad Santiago de Cali".parameterize,
   },
   {
     name: "Cancha de El Laguito",
@@ -22,7 +27,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "Cancha de El Laguito".parameterize,
   },
   {
     name: "CANCHA DE FUTBOL LOS LAGOS II",
@@ -34,7 +41,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "CANCHA DE FUTBOL LOS LAGOS II".parameterize,
   },
   {
     name: "Parque Sebastian de Belalcazar",
@@ -46,7 +55,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 2
+    comuna_id: 2,
+    user_id: user.id,
+    slug: "Parque Sebastian de Belalcazar".parameterize,
   },
   {
     name: "Parque Deportivo Puertas del Sol",
@@ -58,7 +69,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 14
+    comuna_id: 14,
+    user_id: user.id,
+    slug: "Parque Deportivo Puertas del Sol".parameterize,
   },
   {
     name: "I.E Humberto Jordan Mazuera",
@@ -70,7 +83,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "I.E Humberto Jordan Mazuera".parameterize,
   },
   {
     name: "POLIDEPORTIVO ULPIANO LLOREDA",
@@ -82,7 +97,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "POLIDEPORTIVO ULPIANO LLOREDA".parameterize,
   },
   {
     name: "Parque Kokorico",
@@ -94,12 +111,13 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 6
+    comuna_id: 6,
+    user_id: user.id,
+    slug: "Parque Kokorico".parameterize,
   },
   {
     name: "Unidad Recreativa Villa del Lago",
     about: "Completo polideportivo que cuenta con:
-
     CANCHA FUTBOL 11
     CANCHA FUTBOL 5
     CANCHA BALONCESTO
@@ -115,7 +133,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "Unidad Recreativa Villa del Lago".parameterize,
   },
   {
     name: "Club Social Tequendama",
@@ -127,7 +147,9 @@ sites = [
     facebook: "https://www.facebook.com/ClubSocialTequendama/",
     instagram: "",
     twitter: "",
-    comuna_id: 19
+    comuna_id: 19,
+    user_id: user.id,
+    slug: "Club Social Tequendama".parameterize,
   },
   {
     name: "Cancha de Futbol de Charco Azul",
@@ -139,7 +161,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "Cancha de Futbol de Charco Azul".parameterize,
   },
   {
     name: "Parque La Arboleda - Potrero Grande",
@@ -151,7 +175,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 21
+    comuna_id: 21,
+    user_id: user.id,
+    slug: "Parque La Arboleda - Potrero Grande".parameterize,
   },
   {
     name: "Unidad Recreativa El Diamante",
@@ -163,7 +189,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "Unidad Recreativa El Diamante".parameterize,
   },
   {
     name: "Secretaría del Deporte y la Recreación",
@@ -175,7 +203,9 @@ sites = [
     facebook: "https://www.facebook.com/SecDeporteCali/",
     instagram: "https://www.instagram.com/secdeportecali/",
     twitter: "https://twitter.com/SecDeporteCali",
-    comuna_id: 19
+    comuna_id: 19,
+    user_id: user.id,
+    slug: "Secretaría del Deporte y la Recreación".parameterize,
   },
   {
     name: "Liga Vallecaucana de Rugby",
@@ -187,7 +217,9 @@ sites = [
     facebook: "https://www.facebook.com/LVRrugby/",
     instagram: "https://www.instagram.com/rugbyvalle/",
     twitter: "https://twitter.com/_rugbyvalle",
-    comuna_id: 19
+    comuna_id: 19,
+    user_id: user.id,
+    slug: "Liga Vallecaucana de Rugby".parameterize,
   },
   {
     name: "Universidad del Valle - Melendez",
@@ -200,7 +232,9 @@ sites = [
     facebook: "https://www.facebook.com/universidaddelvalle",
     instagram: "https://www.instagram.com/univallecol/",
     twitter: "https://twitter.com/univallecol",
-    comuna_id: 17
+    comuna_id: 17,
+    user_id: user.id,
+    slug: "Universidad del Valle - Melendez".parameterize,
   },
   {
     name: "Polideportivo Dakota",
@@ -212,7 +246,9 @@ sites = [
     facebook: "Carrera 1DBIS con Calle 58, Cali, Valle del Cauca",
     instagram: "",
     twitter: "",
-    comuna_id: 5
+    comuna_id: 5,
+    user_id: user.id,
+    slug: "Polideportivo Dakota".parameterize,
   },
   {
     name: "Secretaría de Cultura",
@@ -224,7 +260,9 @@ sites = [
     facebook: "https://www.facebook.com/CaliCultura/",
     instagram: "https://www.instagram.com/seculturacali/",
     twitter: "https://twitter.com/calicultura",
-    comuna_id: 3
+    comuna_id: 3,
+    user_id: user.id,
+    slug: "Secretaría de Cultura".parameterize,
   },
   {
     name: "Cancha de El Limonar",
@@ -236,7 +274,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 17
+    comuna_id: 17,
+    user_id: user.id,
+    slug: "Cancha de El Limonar".parameterize,
   },
   {
     name: "Polideportivo La Cascada",
@@ -248,7 +288,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 19
+    comuna_id: 19,
+    user_id: user.id,
+    slug: "Polideportivo La Cascada".parameterize,
   },
   {
     name: "Polideportivo Francisco Eladio Ramirez",
@@ -260,7 +302,9 @@ sites = [
     facebook: "https://www.facebook.com/pages/Barrio-Francisco-Eladio-Ramirez/1778576979091345?__tn__=kC-R&eid=ARC_0lbk6nC1wIPBKnyoQyffxfu7YvSKirZlUIA47rgho8ROo20zA-0LRXnPJ183EhEoC2l25IvXsERr&hc_ref=ARQfNnEoyknZfQXLqzJdfigDAYG_t6-XJ245c7pD8MsRy5hY0K9QO9UkBE46BQza1XI&fref=tag&__xts__[0]=68.ARBwPrhx9L6n_tFKDLv8NrPhXefn7Mx-V3kwCfwXRw_PPxHLnIB8o8OM8pzU-w-lMsLZ-2cysiKBAOvpFL23mkX6mF7TwLZ9O5E0l971R8n4ZmDGhfcSB089vXDBj6Plws34Pcd-XHJEcEUyiC7_LfHE8pgplR8HfZ0haIHSImIy4I4NqqZYeV8MPGOXdOtGwT2S5MTxgSPRWqdhSEufFUhp2dDYhijCvpp-CnrzXpZL0pAdevpVYfzoWia3JBci-qvqxxKKTlHULUwlga_T4z3cjbZAXzzU1vGSy_WPpC0gLz38i5cEFlh5CoupbiDiuWKzWbS6EBf6IiwIaaYG1nw",
     instagram: "",
     twitter: "",
-    comuna_id: 18
+    comuna_id: 18,
+    user_id: user.id,
+    slug: "Polideportivo Francisco Eladio Ramirez".parameterize,
   },
   {
     name: "Tecnocentro Cultural Somos Pacífico",
@@ -273,7 +317,9 @@ sites = [
     facebook: "https://www.facebook.com/tcsomospacifico/",
     instagram: "",
     twitter: "",
-    comuna_id: 21
+    comuna_id: 21,
+    user_id: user.id,
+    slug: "Tecnocentro Cultural Somos Pacífico".parameterize,
   },
   {
     name: "Centro de Atención Local Integrada 13 - CALI 13",
@@ -285,7 +331,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "Centro de Atención Local Integrada 13 - CALI 13".parameterize,
   },
   {
     name: "CORPORACION CASA NARANJA TEATRO AL BARRIO",
@@ -297,7 +345,9 @@ sites = [
     facebook: "https://www.facebook.com/casa.naranja.79",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "CORPORACION CASA NARANJA TEATRO AL BARRIO".parameterize,
   },
   {
     name: "JAC Belisario Betancourt",
@@ -309,7 +359,9 @@ sites = [
     facebook: "",
     instagram: "",
     twitter: "",
-    comuna_id: 13
+    comuna_id: 13,
+    user_id: user.id,
+    slug: "JAC Belisario Betancourt".parameterize,
   },
   # {
   #   name: "",

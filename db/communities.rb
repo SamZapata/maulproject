@@ -1,5 +1,7 @@
 # seeds for communities
 
+user = User.find_by(email: 'jsamzapata@gmail.com')
+
 communities = [
   {
     name: "Comunidad Santiaguina",
@@ -11,7 +13,8 @@ communities = [
     instagram: "https://www.instagram.com/usantiagodecali/",
     twitter: "https://twitter.com/usantiagodecali",
     comuna_id: 19,
-    image: 'images/com-1'
+    user_id: user.id,
+    # image: 'images/com-1'
   },
   {
     name: "Somos Lobos Rugby",
@@ -23,7 +26,8 @@ communities = [
     instagram: "https://www.instagram.com/lobos_rugbyclub/",
     twitter: "https://twitter.com/LobosRugbycali",
     comuna_id: 19,
-    image: 'images/com-2'
+    user_id: user.id,
+    # image: 'images/com-2'
   },
   {
     name: "Niños, Niñas, Adolescentes y Jóvenes Gestores de Paz - Cali",
@@ -35,7 +39,8 @@ communities = [
     instagram: "",
     twitter: "https://twitter.com/SoyGestordePaz",
     comuna_id: 14,
-    image: 'images/com-3'
+    user_id: user.id,
+    # image: 'images/com-3'
   },
   {
     name: "Distrito Rugby",
@@ -47,7 +52,8 @@ communities = [
     instagram: "",
     twitter: "",
     comuna_id: 13,
-    image: 'images/com-4'
+    user_id: user.id,
+    # image: 'images/com-4'
   },
   {
     name: "Rugby Valle",
@@ -59,7 +65,8 @@ communities = [
     instagram: "https://www.instagram.com/rugbyvalle/",
     twitter: "https://twitter.com/LVR_rugby",
     comuna_id: 19,
-    image: 'images/com-5'
+    user_id: user.id,
+    # image: 'images/com-5'
   },
   {
     name: "Soy Sultán",
@@ -71,6 +78,7 @@ communities = [
     instagram: "https://www.instagram.com/sultanes_rc/",
     twitter: "",
     comuna_id: 18,
+    user_id: user.id,
   },
   {
     name: "Buziracas Rugby",
@@ -82,6 +90,7 @@ communities = [
     instagram: "https://www.instagram.com/buziracas_rugby/",
     twitter: "",
     comuna_id: 17,
+    user_id: user.id,
   },
   {
     name: "Phalanx rugby",
@@ -93,6 +102,7 @@ communities = [
     instagram: "https://www.instagram.com/phalanxrugbyclub/",
     twitter: "",
     comuna_id: 17,
+    user_id: user.id,
   },
   {
     name: "Tikunas Rugby",
@@ -104,6 +114,7 @@ communities = [
     instagram: "https://www.instagram.com/tikunasrugby/",
     twitter: "",
     comuna_id: 19,
+    user_id: user.id,
   },
   {
     name: "Amapolas rugby",
@@ -115,6 +126,7 @@ communities = [
     instagram: "https://www.instagram.com/amapolasrc/?hl=bg",
     twitter: "",
     comuna_id: 5,
+    user_id: user.id,
   },
   {
     name: "El Bochinche",
@@ -126,6 +138,7 @@ communities = [
     instagram: "",
     twitter: "",
     comuna_id: 21,
+    user_id: user.id,
   },
   {
     name: "Sporting Lions Cali",
@@ -137,6 +150,7 @@ communities = [
     instagram: "https://www.instagram.com/sportinglionscolombia/",
     twitter: "",
     comuna_id: 13,
+    user_id: user.id,
   },
   {
     name: "Pacífico Futbol Cali",
@@ -148,6 +162,7 @@ communities = [
     instagram: "",
     twitter: "",
     comuna_id: 13,
+    user_id: user.id,
   },
   {
     name: "La Fania Futbol Club",
@@ -159,6 +174,7 @@ communities = [
     instagram: "",
     twitter: "",
     comuna_id: 13,
+    user_id: user.id,
   },
   # {
   #   name: "",

@@ -16,9 +16,11 @@
         = link_to edit_site_path(@site), class: 'link-dark' do
           %i.fa.fa-edit
     %h1.mt-3= @site.name
-    %hr.mb-2
-    .site-networks-section
-      = networks_section @site
+    -# - if @site_networks.include(true)
+    - if !@site_networks
+      %hr.mb-2
+      .site-networks-section
+        = networks_section @site
     .mt-3= image_tag(@site.picture, width: 200) if @site.picture.attached?
     .mt-3.card
       .card-body.text-left

@@ -11,7 +11,7 @@
     %ul#tabEvents.nav.nav-tabs{:role => "tablist"}
       %li.nav-item
         %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab", class: 'link-event' } Todos
-      %li.nav-item
+      -# %li.nav-item
         %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab", class: 'link-event' } Categorías
       %li.nav-item
         %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab", class: 'link-event' } Comunas
@@ -24,10 +24,10 @@
             .box-index.card.p-2.mt-5
               %blockquote.blockquote.mb-0
                 .card-body.bg-card
-                  = image_tag "base/elements_svg/undraw_festivities_tvvj.svg"
+                  = image_tag "base/elements_svg/undraw_convert.svg"
                   =link_to event.name, event, class: 'card-title'
-                %footer
+                -# %footer
                   .text-right temática 1, temática 2...
 
-    #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
+    -# #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
     #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...

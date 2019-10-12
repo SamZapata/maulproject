@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 %w(
+  users
   comunas
   sites
   communities
   events
   categories
-  mix_categories
 ).each do |seed|
   puts "Loading seed file: #{seed}"
   require_relative seed

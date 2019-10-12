@@ -10,7 +10,7 @@
             %a.link-dark{:href => '/'} Santiago de Cali
           %li.breadcrumb-item.active{"aria-current" => "page"}= @comuna.name
 
-  .d-flex.justify-content-center
+  .mt-3.d-flex.justify-content-center
     %ul#tabComunasOp.nav.nav-tabs{:role => "tablist"}
       %li.nav-item
         %a#data-tab.nav-link.active{"aria-controls" => "data", "aria-selected" => "true", "data-toggle" => "tab", :href => "#data", :role => "tab", class: 'link-dark'} Datos
@@ -24,7 +24,6 @@
 
   .container
     .content-by-comuna.col-12
-      -# .col-3.mt-4
       #tabComunasOpContent.tab-content
         #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
           .col-12.mt-4
@@ -33,40 +32,40 @@
             %br
             .d-flex.justify-content-center
               = @comuna.map.html_safe
+
+        -# show communities
         #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
           .col-12.mt-4
-            - if @comuna.community.count > 0
+            - if @comuna.community.present?
               %p
                 Estas son algunas de las comunidades que se reunen en la #{@comuna.name.downcase}
-              .card-deck.d-flex.justify-content-center
+              .card-columns
                 - @comuna.community.each do |c|
-                  .card.border-primary
-                    .card-img-top= image_tag "deb9.jpg", alt: 'image', width: '100%'
-                    .card-body
-                      %h1.card-title=link_to c.name, "/communities/#{c.id}/", class: 'link-dark'
-                      .card-text.text-justify= c.about.first(80) + '...'
-                      %br
-                      .text-right
-                        .btn.btn-primary= link_to 'saber más', "/communities/#{c.id}/", class: 'link-white'
+                  .box-index.card.border-primary.p-2
+                    .card-body.bg-card
+                      - if c.picture.attached?
+                        = image_tag c.picture
+                      - else
+                        = image_tag "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg"
+                      =link_to c.name, "/communities/#{c.slug}/", class: 'card-title-communities'
             - else
               %h4
                 %em Lo sentimos, aún no se han registrado comunidades en la #{@comuna.name.downcase}
 
         #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"}
           .col-12.mt-4
-            - if @comuna.site.count > 0
+            - if @comuna.site.present?
               %p
                 Sitios para visitar en la #{@comuna.name.downcase}
-              .card-deck.d-flex.justify-content-center
+              .card-columns
                 - @comuna.site.each do |s|
-                  .card.border-danger
-                    .card-img-top= image_tag "deb9.jpg", alt: 'image', width: '100%'
-                    .card-body
-                      %h1.card-title=link_to s.name, "/sites/#{s.id}/", class: 'link-dark'
-                      .card-text.text-justify= s.about.first(80) + '...'
-                      %br
-                      .text-right
-                        .btn.btn-danger= link_to 'saber más', "/sites/#{s.id}/", class: 'link-white btn'
+                  .box-index.card.border-danger.p-2
+                    .card-body.bg-card
+                      - if s.picture.attached?
+                        = image_tag s.picture
+                      - else
+                        = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                      =link_to s.name, "/sites/#{s.slug}/", class: 'card-title-sites'
             - else
               %h4
                 %em Lo sentimos, estamos actualizando los sitios más representativos de la #{@comuna.name.downcase}
@@ -75,17 +74,16 @@
           .col-12.mt-4
             - if @comuna.event.count > 0
               %p
-                %em Eventos en la #{@comuna.name.downcase}
-              .card-deck.d-flex.justify-content-center
+                Que se hace en la #{@comuna.name.downcase}
+              .card-columns
                 - @comuna.event.each do |e|
-                  .card.border-success
-                    .card-img-top= image_tag "deb9.jpg", alt: 'image', width: '100%'
-                    .card-body
-                      %h1.card-title=link_to e.name, "/events/#{e.id}/", class: 'link-dark'
-                      .card-text.text-justify= e.description.first(80) + '...'
-                      %br
-                      .text-right
-                        .btn.btn-success= link_to 'saber más', "/events/#{e.id}/", class: 'link-white btn'
+                  .box-index.card.border-success.p-2
+                    .card-body.bg-card
+                      - if e.picture.attached?
+                        = image_tag e.picture
+                      - else
+                        = image_tag "base/elements_svg/undraw_convert.svg"
+                      =link_to e.name, "/events/#{e.slug}/", class: 'card-title-events'
             - else
               %h4
                 %em Lo sentimos, aún no se registran eventos en la #{@comuna.name.downcase}

@@ -19,9 +19,10 @@
         = link_to edit_site_path(@site), class: 'link-dark' do
           %i.fa.fa-edit
     %h1.mt-3= @site.name
-    %hr.mb-2
-    .site-networks-section
-      = networks_section @site
+    - if @site_networks.include?(true)
+      %hr.mb-2
+      .site-networks-section
+        = networks_section @site
     .mt-3= image_tag(@site.picture, width: 200) if @site.picture.attached?
     .mt-3.card
       .card-body.text-left
@@ -35,8 +36,9 @@
           %strong= t('site.phone') + ': '
           = @site.phone
 
-    .mt-3.d-flex.justify-content-center
-      %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
+    - if @site.map.present?
+      .mt-3.d-flex.justify-content-center
+        %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
 
     .mt-3.card
       .card-body

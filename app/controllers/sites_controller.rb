@@ -16,7 +16,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.friendly.find(params[:id])
-    # @site_networks = Sites::CheckSite.new.call @site
+    @site_networks = Sites::CheckSite.new.call @site
   end
 
   # GET /sites/new

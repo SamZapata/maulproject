@@ -30,4 +30,33 @@
                   .text-right temática 1, temática 2...
 
     -# #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
-    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...
+    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"}
+      .container
+        .d-flex.justify-content-around
+          -# .mt-3 Selecciona una comuna
+          .mt-3.btn-group
+            %button.btn{ type: 'button'} selecciona una comuna
+            %button.btn.btn-danger.dropdown-toggle.dropdown-toggle-split{ 'data-toggle' => 'dropdown', 'aria-haspopup' => true, 'aria-expanded' => false }
+              %span.sr-only Toggle Dropdown
+            .dropdown-menu
+              - Comuna.all.each do |comuna|
+                = link_to comuna.name, load_communities_path(comuna_id: comuna.id), class: 'dropdown-item', remote: true
+
+        .content-tab-comunas
+          .mt-3.pt-3.selected-comuna
+            - com_13 = []
+            - @communities.map do |community|
+              - if community.comuna_id == 13
+                - com_13 << community
+            = "Comuna 13, se encontraron #{com_13.length} comunidades registradas"
+          .card-columns
+            - @communities.each do |community|
+              - if community.comuna_id == 13
+                .box-index.card.p-2.mt-5
+                  %blockquote.blockquote.mb-0
+                    .card-body.bg-card
+                      - if community.picture.attached?
+                        = image_tag community.picture
+                      - else
+                        = image_tag "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg"
+                      =link_to community.name, community, class: 'card-title'

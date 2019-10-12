@@ -195,7 +195,7 @@ sites = [
   },
   {
     name: "Secretaría del Deporte y la Recreación",
-    about: "",
+    about: "Dependencia del municipio de Santiago de Cali que fomenta el espíritu deportivo y la recreación en toda la ciudad.",
     address: "Cl. 9 #37a1, Cali, Valle del Cauca",
     phone: "311 7625601",
     map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d837.2601535656825!2d-76.53821060283306!3d3.4223552884953956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6a2caf39935%3A0xc03cb59612c435c3!2sSecretar%C3%ADa%20del%20Deporte%20y%20la%20Recreaci%C3%B3n!5e0!3m2!1ses!2sco!4v1568866095871!5m2!1ses!2sco" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>',

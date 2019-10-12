@@ -16,8 +16,7 @@
         = link_to edit_site_path(@site), class: 'link-dark' do
           %i.fa.fa-edit
     %h1.mt-3= @site.name
-    -# - if @site_networks.include(true)
-    - if !@site_networks
+    - if @site_networks.include?(true)
       %hr.mb-2
       .site-networks-section
         = networks_section @site
@@ -27,15 +26,18 @@
         %strong= t('site.about_site')
         %p
           = @site.about
-        %p
-          %strong= t('site.address') + ': '
-          = @site.address
-        %p
-          %strong= t('site.phone') + ': '
-          = @site.phone
+        - if @site.address.present?
+          %p
+            %strong= t('site.address') + ': '
+            = @site.address
+        - if @site.phone.present?
+          %p
+            %strong= t('site.phone') + ': '
+            = @site.phone
 
-    .mt-3.d-flex.justify-content-center
-      %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
+    - if @site.map.present?
+      .mt-3.d-flex.justify-content-center
+        %iframe{ src: @site.map.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,""), width: '100%', height: '400px'}
 
     .mt-3.card
       .card-body

@@ -9,6 +9,11 @@ class CommunitiesController < ApplicationController
     @communities = Community.all
   end
 
+  def load_communities
+    @comuna = Comuna.find(params[:comuna_id])
+    @communities = Community.where(comuna_id: @comuna)
+  end
+
   # GET /communities/1
   # GET /communities/1.json
   def show

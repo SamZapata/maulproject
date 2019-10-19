@@ -9,15 +9,21 @@
           %li.breadcrumb-item
             %a.link-white{:href => events_path}= t('base.events')
           %li.breadcrumb-item.active{"aria-current" => "page"}= @event.name
-  .container
+  .container.text-center
     %p#notice= notice
-    %h2.text-left= @event.name
-    %p
-      = @event.description
-    %p
-      = @event.start_date
-    %p
-      = @event.final_date
-    = link_to 'Edit', edit_event_path(@event)
-    |
-    = link_to 'Back', events_path
+    - if user_signed_in? && current_user.id == @event.user_id
+      .show-event-edit
+        = link_to edit_event_path(@event), class: 'link-dark' do
+          %i.fa.fa-edit
+    %h1.mt-3= @event.name
+    %hr.mb-2
+    %h4
+      %i.fa.fa-calendar-check
+      = @event.start_date.strftime("%d/%m/%Y")
+      %i.fa.fa-clock
+      = @event.start_date.strftime("%H:%M")
+
+    .card-body.text-left
+      %strong Descripción
+      .text-justify
+        = @event.description

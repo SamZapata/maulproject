@@ -6,7 +6,8 @@
   .card
     .card-body.needs-validation.text-center
       - site = @site
-      = form_with(model: site, local: true) do |form|
+      -# = form_for(model: site, local: true) do |form|
+      = simple_form_for @site, url: new_site_path(@site) do |f|
         - if site.errors.any?
           #error_explanation
             %h2
@@ -15,23 +16,23 @@
             %ul
               - site.errors.full_messages.each do |message|
                 %li= message
+        .form-group
+          = f.label :name
+          = f.input :name, label: false
+        .form-group
+          = f.label :address
+          .form-control= f.text_field :address
         .field
-          = form.label :name
-          = form.text_field :name
+          = f.label :map
+          = f.text_field :map
         .field
-          = form.label :address
-          = form.text_field :address
+          = f.label :phone
+          = f.text_field :phone
         .field
-          = form.label :map
-          = form.text_field :map
+          = f.label :about
+          = f.text_area :about
         .field
-          = form.label :phone
-          = form.text_field :phone
-        .field
-          = form.label :about
-          = form.text_area :about
-        .field
-          = form.label :community
-          = form.collection_select :community_ids, Community.all, :id, :name
+          = f.label :community
+          = f.collection_select :community_ids, Community.all, :id, :name
         .actions
-          = form.submit
+          = f.submit

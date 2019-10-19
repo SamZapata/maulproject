@@ -1,27 +1,20 @@
 / Footer
 %footer
-  .panel-footer
-    .row
-      .container.col-lg-4
-        %h5.menu-header MAUL PROJECT
-        %span
-          %a.social-footer.social-icon{:href => "#", :target => "_blank"}
-            %i.fa.fa-facebook
-          %a.social-footer.social-icon{:href => "#", :target => "_blank"}
-            %i.fa.fa-twitter
-      .container.col-lg-4
-        %h6.footer-text Sobre el proyecto:
-        %a{:href => "/project/about"}
-          %h6 ¿Que es Maul Project?
-        %a{:href => "/project/information"}
-          %h6 ¿Como Surge?
-      .container.col-lg-4
-        %h6.footer-text Recursos:
-        %a{:href => "/project/terms-of-services"}
-          %h6 Terminos Y Condiciones de Uso
-        %a{:href => "#"}
-          %h6 Proyección
-    .container.col-lg-12.text-center
-      %h6
+  .maul-footer
+    .maul-footer--logo
+      = link_to (image_tag 'base/maul_logo_red_blur.png'), '/'
+    .footer-title.text-center
+      MAUL PROJECT
+    .footer-text.text-center
+      = link_to  'Sobre el proyecto', '#', class: 'link-white'
+      |
+      = link_to 'Términos y Condiciones', '#', class: 'link-white'
+    -# .footer-text.text-center.row
+      .col-6.text-right
+        Sobre el proyecto
+      .col-6.text-left
+        Términos y Condiciones
+    .col-12.text-center
+      .footer-text
         Developed By:
-        %a{:href => "https://github.com/SamZapata", :target => "_blank"} @samzapata
+        %a{:href => "https://github.com/SamZapata", :target => "_blank", class: 'link-red'} @samzapata

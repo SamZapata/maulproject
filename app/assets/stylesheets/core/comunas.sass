@@ -20,7 +20,19 @@
         width: auto
         height: calc(80%)
         z-index: 1
-      .card-title
+      .card-title-communities
+        display: flex
+        width: 100%
+        min-height: calc(10vh)
+        height: auto
+        z-index: 10
+        background-color: $dark-transparent
+        justify-content: center
+        align-items: center
+        color: $white
+        &:hover
+          background-color: $navy-transparent
+      .card-title-sites
         display: flex
         width: 100%
         min-height: calc(10vh)
@@ -32,17 +44,72 @@
         color: $white
         &:hover
           background-color: $red-transparent
-
-  .tabs-comunas
-    font-size: 10% !important
-    margin: 10px
+      .card-title-events
+        display: flex
+        width: 100%
+        min-height: calc(10vh)
+        height: auto
+        z-index: 10
+        background-color: $dark-transparent
+        justify-content: center
+        align-items: center
+        color: $white
+        &:hover
+          background-color: $green-transparent
 
   .show-comuna
+    @include font-size(12)
     .breadcrumb
+      margin-bottom: 0
+      @include font-size(10)
       background-color: $offwhite
 
+    .tab-comunas
+      li
+        a
+          font-size: 100%
+          // @include font-size(12)
+
+  .m
+    &.show-comuna
+      // @include font-size(20)
+      font-size: 100%
+      .breadcrumb
+        background-color: $offwhite
+        font-size: 100%
+
+      .tab-comunas
+        li
+          a
+            font-size: 100%
+
+      .tab-content
+        .tab-pane
+          .btn
+            font-size: 100%
+
+      .card-body
+        &.bg-card
+          height: auto
+          img
+            position: absolute
+            width: auto
+            // height: calc(60%)
+            z-index: 1
+
   .bg-bar-comuna
-    width: calc(100vw)
+    width: auto
     height: auto
     background-color: $offwhite
     padding: 10px 0
+
+  .content-by-comuna
+    padding: 0 1.1rem
+
+    .opt-content
+      width: 100%
+      .opt-pane
+        display: block
+        justify-content: center
+        padding: 5% 0
+        background-color: red

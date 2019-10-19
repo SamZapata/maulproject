@@ -1,0 +1,24 @@
+- client = DeviceDetector.new(request.user_agent)
+- type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
+
+.communities
+  .new-community
+    -# = render "communities/#{type}/new"
+    %nav{"aria-label" => "breadcrumb"}
+      .bg-bar-community
+        .container
+          %ol.breadcrumb
+            %li.breadcrumb-item
+              %a.link-white{:href => "/"}
+                %i.fas.fa-home
+            %li.breadcrumb-item
+              %a.link-white{:href => communities_path}= t('base.communities')
+            %li.breadcrumb-item.active{"aria-current" => "page"} Registrar una comunidad
+
+    - if user_signed_in?
+      = render 'form'
+    - else
+      .container
+        %br
+        %h2.text-center
+          Para crear una comunidad primero debes iniciar sesión!

@@ -2,31 +2,4 @@
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
 .events
-  .bg-bar-event
-    %h1.text-center= link_to t('base.events'), events_path, alt: 'index events', class: 'link-white'
-  %p#notice= notice
-
-  .d-flex.justify-content-center
-    %ul#tabEvents.nav.nav-tabs{:role => "tablist"}
-      %li.nav-item
-        %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab"} Todos
-      %li.nav-item
-        %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab"} Categorías
-      %li.nav-item
-        %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab"} Comunas
-
-
   = render "events/#{type}/index"
-
--# %tbody
-  - @events.each do |event|
-    %tr
-      %td= event.name
-      %td= event.about
-      %td= event.address
-      %td= event.phone
-      %td= event.email
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-      -# = link_to 'New Community', new_event_path

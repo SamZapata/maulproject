@@ -9,21 +9,49 @@
           %li.breadcrumb-item
             %a.link-white{:href => communities_path}= t('base.communities')
           %li.breadcrumb-item.active{"aria-current" => "page"}= @community.name
-  .container
+  .container.text-center
     %p#notice= notice
-    %h2.text-left= @community.name
-    %p
-      %strong About:
-      = @community.about
-    %p
-      %strong Address:
-      = @community.address
-    %p
-      %strong Phone:
-      = @community.phone
-    %p
-      %strong Email:
-      = @community.email
-    = link_to 'Edit', edit_community_path(@community)
-    |
-    = link_to 'Back', communities_path
+    - if user_signed_in? && current_user.id == @community.user_id
+      .show-community-edit
+        = link_to edit_community_path(@community), class: 'link-dark' do
+          %i.fa.fa-edit
+    %h1.mt-3= @community.name
+    %hr.mb-2
+    .community-networks-section
+      = networks_section @community
+    .mt-3= image_tag(@community.picture, width: 200) if @community.picture.attached?
+    .mt-3.card
+      .card-body.text-left
+        %strong= t('community.about_community')
+        %p
+          = @community.about
+
+        - if @community.maul_plans.count > 0
+          %em ¿Dónde nos reunimos?
+          %p
+            - @community.maul_plans.each do |community_site|
+              = link_to community_site.site.name, community_site.site
+              %br
+        - elsif @community.address.present?
+          %em ¿Dónde nos reunimos?
+          %p= @community.address
+
+        - if @community.phone.present?
+          %em Teléfono(s) de contacto:
+          %p= @community.phone
+
+        - if @community.email.present?
+          %em correo electrónico:
+          %p= @community.email
+
+    .mt-3.card
+      .card-body
+        %strong Eventos que realizamos
+        - if @community.community_mauls.count <= 0
+          %p Lo sentimos, esta comunidad aún no ha registrado ningún evento!
+        - else
+          - @community.community_mauls.each do |maul|
+            .jumbotron.text-left
+              %strong= link_to maul.event.name, maul.event
+              %br
+              %em= maul.event.start_date.to_formatted_s(:long)

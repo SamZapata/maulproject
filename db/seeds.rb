@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 %w(
+  users
   comunas
   sites
   communities

@@ -33,16 +33,69 @@
         &:hover
           background-color: $red-transparent
 
-  .tabs-sites
-    font-size: 10% !important
-    margin: 10px
+  .tab-sites
+    // font-size: 10% !important
+    background-color: lighten($dark, 20)
 
+  .index-sites
+    .content-carousel
+      width: calc(100%)
+      .carousel-inner
+        width: calc(100% + 50px)
+      .carousel-control-prev
+        color: $red
+      .carousel-control-next
+        color: $red
+
+    .content-tab
+      
   .show-site
     .breadcrumb
       background-color: $red
+      margin-bottom: 0
+      font-size: 1.1rem
+
+    frame
+      border-width: inherit !important
+
+    .show-site-edit
+      display: flex
+      position: absolute
+      right: 0
+      margin-right: 8vw
+    .site-networks-section
+      display: flex
+      justify-content: center
+      height: 50px
+      i
+        margin-left: 5px
+        img
+          height: 40px
+
+        .link-svg
+          &:hover
+            filter: invert(0%) sepia(1%) brightness(80%)
+  .new-site
+    .breadcrumb
+      background-color: $red
+      margin-bottom: 0
+      font-size: 1.1rem
 
   .bg-bar-site
-    width: calc(100vw)
+    width: auto
     height: auto
     background-color: $red
     padding: 10px 0
+
+  .link-site
+    color: $dark
+    &:hover
+      color: $red
+
+  form
+    input
+      width: 100%
+    textarea
+      width: 100%
+    select
+      width: 100%

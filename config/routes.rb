@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :comunas
   resources :profiles
 
+  get 'sites/comuna/load_sites', to: 'sites#load_sites', as: :load_sites
+
+  get 'communities/comuna/load_communities', to: 'communities#load_communities', as: :load_communities
+
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

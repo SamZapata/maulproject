@@ -1,0 +1,25 @@
+.mt-3.pt-3.selected-comuna
+  - case @communities.length
+  - when 0
+    .text-center= "#{comuna.name}, lo sentimos aún no hay sitios registrados en esta comuna."
+    .text-center
+      .mt-3 Puedes empezar añadiendo la comunidad a la que perteneces
+      = link_to new_community_path, class: 'link-dark' do
+        %em.fa.fa-map-marked-alt.mr-2
+        %em= t('community.register_a_community')
+  - when 1
+    = "#{comuna.name}, se encontró #{@communities.length} comunidad registrada"
+  - else
+    = "#{comuna.name}, se encontraron #{@communities.length} comunidades registradas"
+
+.card-columns
+  - @communities.each do |community|
+    - if community.comuna_id == comuna.id
+      .box-index.card.p-2.mt-5
+        %blockquote.blockquote.mb-0
+          .card-body.bg-card
+            - if community.picture.attached?
+              = image_tag community.picture
+            - else
+              = image_tag "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg"
+            =link_to community.name, community, class: 'card-title'

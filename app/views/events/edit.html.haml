@@ -1,0 +1,24 @@
+- client = DeviceDetector.new(request.user_agent)
+- type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
+
+.events
+  .new-event
+    -# = render "events/#{type}/new"
+    %nav{"aria-label" => "breadcrumb"}
+      .bg-bar-event
+        .container
+          %ol.breadcrumb
+            %li.breadcrumb-item
+              %a.link-white{:href => "/"}
+                %i.fas.fa-home
+            %li.breadcrumb-item
+              %a.link-white{:href => events_path}= t('base.events')
+            %li.breadcrumb-item.active{"aria-current" => "page"}= @event.name.capitalize
+
+    - if user_signed_in? && current_user == @event.user
+      = render 'form'
+    - else
+      .container
+        %br
+        %h2.text-center
+          Eres el creador de este evento?

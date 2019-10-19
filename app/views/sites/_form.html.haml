@@ -1,30 +1,89 @@
-= form_with(model: site, local: true) do |form|
-  - if site.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(site.errors.count, "error")
-        prohibited this site from being saved:
-      %ul
-        - site.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .field
-    = form.label :address
-    = form.text_field :address
-  .field
-    = form.label :map
-    = form.text_field :map
-  .field
-    = form.label :phone
-    = form.text_field :phone
-  .field
-    = form.label :about
-    = form.text_area :about
-  .field
-    = form.label :community
-    = form.collection_check_boxes :community_ids, Community.all, :id, :name do |c|
-      = c.check_box
-  .actions
-    = form.submit
+-# .bg-bar-site
+  .container
+    %h2.text-left.link-white
+      = link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+    -# %h2.text-left.link-white= t('site.register_form')
+
+.container.d-flex.flex-column
+  %br
+  %h2.text-center Completa los campos para registrar un nuevo sitio
+  %br
+  .card
+    .card-body.needs-validation.text-center
+      - site = @site
+      -# = form_for(model: site, local: true) do |form|
+      = simple_form_for @site do |f|
+        - if site.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(site.errors.count, "error")
+              prohibited this site from being saved:
+            %ul
+              - site.errors.full_messages.each do |message|
+                %li= message
+        .form-group
+          %em
+            .text-left= f.label 'Nombre del Sitio'
+          = f.input :name, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Describe que se puede encontrar en este lugar'
+          = f.input :about, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Dirección del lugar'
+          = f.input :address, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Teléfono'
+          = f.input :phone, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Mapa embebido de google'
+          = f.input :map, label: false
+
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de facebook'
+          = f.input :facebook, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de twitter'
+          = f.input :twitter, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de instagram'
+          = f.input :instagram, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'link de youtube'
+          = f.input :youtube, label: false
+
+        %br
+        .form-group
+          %em
+            .text-left= f.label 'Agrega una imagen representativa del sitio'
+          = f.file_field :picture, label: false
+        %br
+        .form-group
+          %em
+            .text-left= f.label '¿En que comuna queda este sitio?'
+          = f.input :comuna_id, collection: Comuna.all.collect, label: false
+        %br
+        -# .form-check
+          %em
+            .text-left= f.label 'Puedes seleccionar que comunidades se reunen en este lugar'
+          %hr
+          .col-10.thumbnail
+            -# .form-check-input.position-static= f.input :community_ids, as: :check_boxes, collection: Community.all.collect, class: 'form-check-input position-static', label: false
+          -# = f.select(:comuna_id, Comuna.all.collect {|a| [a.name, a.id]},{prompt: 'seleccione una comuna'},{} )
+        .actions
+          = f.submit 'Aceptar', class: 'btn btn-dark'

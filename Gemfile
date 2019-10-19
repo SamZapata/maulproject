@@ -41,6 +41,7 @@ gem 'haml'
 
 # manage users
 gem 'devise'
+gem 'devise-i18n'
 # device detector
 gem 'device_detector'
 # Use Capistrano for deployment
@@ -56,6 +57,15 @@ gem 'selectize-rails'
 
 # internationalization
 gem 'rails-i18n'
+
+# attach images
+gem 'cloudinary'
+
+# google cloud storage
+gem "google-cloud-storage", "~> 1.8", require: false
+
+# Add friendly slug
+gem 'friendly_id', '~> 5.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

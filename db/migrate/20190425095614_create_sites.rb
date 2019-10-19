@@ -6,7 +6,7 @@ class CreateSites < ActiveRecord::Migration[5.2]
       t.string :map
       t.string :phone
       t.text :about
-      # t.integer :comuna_id
+      t.integer :comuna_id
 
       t.timestamps
     end

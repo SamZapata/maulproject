@@ -10,50 +10,80 @@
             %a.link-dark{:href => '/'} Santiago de Cali
           %li.breadcrumb-item.active{"aria-current" => "page"}= @comuna.name
 
-  .d-flex.justify-content-center
+  .mt-3.d-flex.justify-content-center
     %ul#tabComunasOp.nav.nav-tabs{:role => "tablist"}
       %li.nav-item
-        %a#data-tab.nav-link.active{"aria-controls" => "data", "aria-selected" => "true", "data-toggle" => "tab", :href => "#data", :role => "tab"} Datos
+        %a#data-tab.nav-link.active{"aria-controls" => "data", "aria-selected" => "true", "data-toggle" => "tab", :href => "#data", :role => "tab", class: 'link-dark'} Datos
       %li.nav-item
-        %a#communities-tab.nav-link{"aria-controls" => "communities", "aria-selected" => "false", "data-toggle" => "tab", :href => "#communities", :role => "tab"} Comunidades
+        %a#communities-tab.nav-link{"aria-controls" => "communities", "aria-selected" => "false", "data-toggle" => "tab", :href => "#communities", :role => "tab", class: 'link-dark'}= t('base.communities')
       %li.nav-item
-        %a#sites-tab.nav-link{"aria-controls" => "sites", "aria-selected" => "false", "data-toggle" => "tab", :href => "#sites", :role => "tab"} Sitios
+        %a#sites-tab.nav-link{"aria-controls" => "sites", "aria-selected" => "false", "data-toggle" => "tab", :href => "#sites", :role => "tab", class: 'link-dark'}= t('base.sites')
       %li.nav-item
-        %a#events-tab.nav-link{"aria-controls" => "events", "aria-selected" => "false", "data-toggle" => "tab", :href => "#events", :role => "tab"} Eventos
+        %a#events-tab.nav-link{"aria-controls" => "events", "aria-selected" => "false", "data-toggle" => "tab", :href => "#events", :role => "tab", class: 'link-dark'}= t('base.events')
 
-    %p#notice= notice
 
   .container
-    #tabComunasOpContent.tab-content
-      #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
-        / comuna image
-        -# = image_tag "base/elements_svg/undraw_reminder_pa79.svg", alt: 'image ', width: '50%'
-        %p
-          = @comuna.about
-        .d-flex.justify-content-center
-          = @comuna.map.html_safe
-        -# = link_to 'Edit', edit_comuna_path(@comuna)
+    .content-by-comuna.col-12
+      #tabComunasOpContent.tab-content
+        #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
+          .col-12.mt-4
+            %p
+              .text-justify= @comuna.about
+            %br
+            .d-flex.justify-content-center
+              = @comuna.map.html_safe
 
-      #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
-        - @comuna.community.each do |c|
-          %p=link_to c.name, "/communities/#{c.id}/"
+        -# show communities
+        #communities.tab-pane.fade{"aria-labelledby" => "communities-tab", :role => "tabpanel"}
+          .col-12.mt-4
+            - if @comuna.community.present?
+              %p
+                Estas son algunas de las comunidades que se reunen en la #{@comuna.name.downcase}
+              .card-columns
+                - @comuna.community.each do |c|
+                  .box-index.card.border-primary.p-2
+                    .card-body.bg-card
+                      - if c.picture.attached?
+                        = image_tag c.picture
+                      - else
+                        = image_tag "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/good_team_m7uu.svg"
+                      =link_to c.name, "/communities/#{c.slug}/", class: 'card-title-communities'
+            - else
+              %h4
+                %em Lo sentimos, aún no se han registrado comunidades en la #{@comuna.name.downcase}
 
-      #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"}
-        - @comuna.site.each do |s|
-          %p=link_to s.name, "/sites/#{s.id}/"
+        #sites.tab-pane.fade{"aria-labelledby" => "sites-tab", :role => "tabpanel"}
+          .col-12.mt-4
+            - if @comuna.site.present?
+              %p
+                Sitios para visitar en la #{@comuna.name.downcase}
+              .card-columns
+                - @comuna.site.each do |s|
+                  .box-index.card.border-danger.p-2
+                    .card-body.bg-card
+                      - if s.picture.attached?
+                        = image_tag s.picture
+                      - else
+                        = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                      =link_to s.name, "/sites/#{s.slug}/", class: 'card-title-sites'
+            - else
+              %h4
+                %em Lo sentimos, estamos actualizando los sitios más representativos de la #{@comuna.name.downcase}
 
-      #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"}
-        - @comuna.event.each do |e|
-          %p=link_to e.name, "/events/#{e.id}/"
-
-
-  -# .container
-  -#
-  -#   %p#notice= notice
-  -#   %h2.text-left= @comuna.name
-  -#   %p
-  -#     %strong About:
-  -#     = @comuna.abotu
-  -#   .d-flex.justify-content-center
-  -#     = @comuna.map.html_safe
-  -#   -# = link_to 'Edit', edit_comuna_path(@comuna)
+        #events.tab-pane.fade{"aria-labelledby" => "events-tab", :role => "tabpanel"}
+          .col-12.mt-4
+            - if @comuna.event.count > 0
+              %p
+                Que se hace en la #{@comuna.name.downcase}
+              .card-columns
+                - @comuna.event.each do |e|
+                  .box-index.card.border-success.p-2
+                    .card-body.bg-card
+                      - if e.picture.attached?
+                        = image_tag e.picture
+                      - else
+                        = image_tag "base/elements_svg/undraw_convert.svg"
+                      =link_to e.name, "/events/#{e.slug}/", class: 'card-title-events'
+            - else
+              %h4
+                %em Lo sentimos, aún no se registran eventos en la #{@comuna.name.downcase}

@@ -1,14 +1,104 @@
-#tabSitesContent.tab-content
-  #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
-    .content.col-12
-      - @sites.each do |site|
-        .box-index.card.p-2.mt-4
-          %blockquote.blockquote.mb-0
-            .card-body.bg-card
-              = image_tag "base/elements_svg/undraw_reminder_pa79.svg", width: '50%'
-              =link_to site.name, site, class: 'card-title'
-            %footer
-              .text-right temática 1, temática 2...
+.index-sites
+  .bg-bar-site
+    .container.d-flex.justify-content-between.mt-2
+      %h5.d-flex.align-items-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+      %h6.d-flex.align-items-center
+        %em.link-white.fa.fa-map-marked-alt.mr-2
+        %em= link_to t('site.register_a_site'), new_site_path, class: 'link-white'
+  %p#notice= notice
 
-  #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
-  #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...
+  .d-flex.justify-content-center
+    %ul#tabSites.nav.nav-tabs{:role => "tablist"}
+      %li.nav-item
+        %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab", class: 'link-site'} Todos
+      -# %li.nav-item
+        %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab", class: 'link-site'} Categorías
+      %li.nav-item
+        %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab", class: 'link-site'} Comunas
+
+  #tabSitesContent.tab-content
+    #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
+      .container
+        .mt-3.pt-3 Sitios registrados en Maul Project
+        .card-columns
+          - @sites.each do |site|
+            .box-index.card.p-2.mt-5
+              %blockquote.blockquote.mb-0
+                .card-body.bg-card
+                  - if site.picture.attached?
+                    = image_tag site.picture
+                  - else
+                    = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                  =link_to site.name, site, class: 'card-title'
+                -# %footer
+                  .text-right temática 1, temática 2...
+
+    #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
+    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"}
+      .container
+        .d-flex.justify-content-around
+          -# .mt-3 Selecciona una comuna
+          .mt-3.btn-group
+            %button.btn{ type: 'button'} selecciona una comuna
+            %button.btn.btn-danger.dropdown-toggle.dropdown-toggle-split{ 'data-toggle' => 'dropdown', 'aria-haspopup' => true, 'aria-expanded' => false }
+              %span.sr-only Toggle Dropdown
+            .dropdown-menu
+              - Comuna.all.each do |comuna|
+                = link_to comuna.name, load_sites_path(comuna_id: comuna.id), class: 'dropdown-item', remote: true
+
+        .content-tab-comunas
+          .mt-3.pt-3.selected-comuna
+            - com_13 = []
+            - @sites.map do |site|
+              - if site.comuna_id == 13
+                - com_13 << site
+            = "Comuna 13, se encontraron #{com_13.length} sitios registrados"
+          .card-columns
+            - @sites.each do |site|
+              - if site.comuna_id == 13
+                .box-index.card.p-2.mt-5
+                  %blockquote.blockquote.mb-0
+                    .card-body.bg-card
+                      - if site.picture.attached?
+                        = image_tag site.picture
+                      - else
+                        = image_tag "base/elements_svg/undraw_reminder_pa79.svg"
+                      =link_to site.name, site, class: 'card-title'
+
+:javascript
+  MAUL.comunas.dropdown.setup();
+
+
+
+-# .m.index-sites
+  .bg-bar-site
+    .container.d-flex.justify-content-between.mt-2
+      %h1.d-flex.align-items-center= link_to t('base.sites'), sites_path, alt: 'index sites', class: 'link-white'
+      %h2.d-flex.align-items-center
+        %em.link-white.fa.fa-map-marked-alt.mr-2
+        %em= link_to t('site.register_a_site'), new_site_path, class: 'link-white'
+  %p#notice= notice
+
+  .d-flex.justify-content-center
+    %ul#tabSites.nav.nav-tabs{:role => "tablist"}
+      %li.nav-item
+        %a#all-tab.nav-link.active{"aria-controls" => "all", "aria-selected" => "true", "data-toggle" => "tab", :href => "#all", :role => "tab", class: 'link-site'} Todos
+      -# %li.nav-item
+        %a#category-tab.nav-link{"aria-controls" => "category", "aria-selected" => "false", "data-toggle" => "tab", :href => "#category", :role => "tab", class: 'link-site'} Categorías
+      %li.nav-item
+        %a#comunas-tab.nav-link{"aria-controls" => "comunas", "aria-selected" => "false", "data-toggle" => "tab", :href => "#comunas", :role => "tab", class: 'link-site'} Comunas
+
+  #tabSitesContent.tab-content
+    #all.tab-pane.fade.show.active{"aria-labelledby" => "all-tab", :role => "tabpanel"}
+      .container
+        - @sites.each do |site|
+          .box-index.card.p-2.mt-4
+            %blockquote.blockquote.mb-0
+              .card-body.bg-card
+                = image_tag "base/elements_svg/undraw_reminder_pa79.svg", width: '50%'
+                =link_to site.name, site, class: 'card-title'
+              %footer
+                .text-right temática 1, temática 2...
+
+    #category.tab-pane.fade{"aria-labelledby" => "category-tab", :role => "tabpanel"} ...
+    #comunas.tab-pane.fade{"aria-labelledby" => "comunas-tab", :role => "tabpanel"} ...

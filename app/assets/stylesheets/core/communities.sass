@@ -41,9 +41,51 @@
   .show-community
     .breadcrumb
       background-color: $navy
+      margin-bottom: 0
+      font-size: 1.1rem
+
+    .show-community-edit
+      display: flex
+      position: absolute
+      right: 0
+      margin-right: 8vw
+
+    .community-networks-section
+      display: flex
+      justify-content: center
+      height: 50px
+      i
+        margin-left: 5px
+        img
+          height: 40px
+
+        .link-svg
+          &:hover
+            filter: invert(0%) sepia(1%) brightness(80%)
+
+  .new-community
+    .breadcrumb
+      background-color: $navy
+      margin-bottom: 0
+      font-size: 1.1rem
 
   .bg-bar-community
-    width: calc(100vw)
+    width: auto
     height: auto
-    background-color: $navy
     padding: 10px 0
+    background-color: $navy
+
+  .link-community
+    color: $dark
+    &:hover
+      color: $navy
+
+  form
+    &.simple_form
+      .form-group
+        input
+          width: 100% !important
+        textarea
+          width: 100%
+        select
+          width: 100%

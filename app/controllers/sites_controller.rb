@@ -7,9 +7,16 @@ class SitesController < ApplicationController
     @sites = Site.all
   end
 
+  def load_sites
+    @comuna = Comuna.find(params[:comuna_id])
+    @sites = Site.where(comuna_id: @comuna)
+  end
+
   # GET /sites/1
   # GET /sites/1.json
   def show
+    @site = Site.friendly.find(params[:id])
+    @site_networks = Sites::CheckSite.new.call @site
   end
 
   # GET /sites/new
@@ -24,12 +31,12 @@ class SitesController < ApplicationController
   # POST /sites
   # POST /sites.json
   def create
-    @site = Site.new(site_params)
+    @site = Site.new(site_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @site.save
-        add_community(site_params[:id])
-        format.html { redirect_to @site, notice: 'Site was successfully created.' }
+        # add_community(site_params[:id])
+        format.html { redirect_to @site, notice: 'Sitio creado exitosamente.' }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -41,12 +48,14 @@ class SitesController < ApplicationController
   # PATCH/PUT /sites/1
   # PATCH/PUT /sites/1.json
   def update
+    # @site = Site.find(params[:id])
+    @site = Site.friendly.find(params[:id])
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
+        format.html { redirect_to @site, notice: 'El sitio fué actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @site }
       else
-        format.html { render :edit }
+        format.html { render :index }
         format.json { render json: @site.errors, status: :unprocessable_entity }
       end
     end
@@ -65,23 +74,23 @@ class SitesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
-      @site = Site.find(params[:id])
+      @site = Site.friendly.find(params[:id])
+      # @site = Site.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:name, :address, :map, :phone, :about,
+      params.require(:site).permit(:name, :address, :map, :phone, :about, :comuna_id, :picture, :website, :facebook, :instagram, :twitter, :youtube,
         community_ids: [],
         event_ids: [],
         category_ids: []
       )
     end
 
-    def add_community(community_ids)
-      if community_ids != nil
-        @new_community = Community.create(name: 'un site me creó')
-        @new_community.save
-      end
-
-    end
+    # def add_community(community_ids)
+      # if community_ids != nil
+      #   # @new_community = Community.create(name: 'un site me creó')
+      #   # @new_community.save
+      # end
+    # end
 end

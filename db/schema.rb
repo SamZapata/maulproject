@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_014017) do
+ActiveRecord::Schema.define(version: 2019_08_08_003343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -38,7 +59,10 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.string "twitter"
     t.string "youtube"
     t.bigint "comuna_id"
+    t.integer "user_id"
+    t.string "slug"
     t.index ["comuna_id"], name: "index_communities_on_comuna_id"
+    t.index ["slug"], name: "index_communities_on_slug", unique: true
   end
 
   create_table "community_mauls", force: :cascade do |t|
@@ -58,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "map"
+    t.string "slug"
+    t.index ["slug"], name: "index_comunas_on_slug", unique: true
   end
 
   create_table "events", force: :cascade do |t|
@@ -70,7 +96,21 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.string "facebook"
     t.string "other_link"
     t.bigint "comuna_id"
+    t.integer "user_id"
+    t.string "slug"
     t.index ["comuna_id"], name: "index_events_on_comuna_id"
+    t.index ["slug"], name: "index_events_on_slug", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "maul_plans", force: :cascade do |t|
@@ -126,13 +166,16 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.text "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "link"
+    t.string "website"
     t.string "facebook"
     t.string "instagram"
     t.string "twitter"
     t.string "youtube"
     t.bigint "comuna_id"
+    t.integer "user_id"
+    t.string "slug"
     t.index ["comuna_id"], name: "index_sites_on_comuna_id"
+    t.index ["slug"], name: "index_sites_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -143,10 +186,15 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "site_id"
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["site_id"], name: "index_users_on_site_id"
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "communities", "comunas"
   add_foreign_key "community_mauls", "communities"
   add_foreign_key "community_mauls", "events"
@@ -160,4 +208,5 @@ ActiveRecord::Schema.define(version: 2019_06_08_014017) do
   add_foreign_key "site_mauls", "events"
   add_foreign_key "site_mauls", "sites"
   add_foreign_key "sites", "comunas"
+  add_foreign_key "users", "sites"
 end

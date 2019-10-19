@@ -3,7 +3,7 @@
   .m-navbar.d-flex.justify-content-center
     .container.d-flex.justify-around
       .col-4.text-center.d-flex.align-items-center.justify-content-start
-        = link_to '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal", "data-toggle"=>"modal", "data-target"=>"#maulProjectModal" do
+        = link_to '#', class: 'm-home-text', "data-toggle"=>"modal", "data-target"=>"#maulProjectModal" do
           %i.fa.fa-bars.fa-2x
       .col-4.text-center.d-flex.align-items-center
         .m-home-btn= link_to (image_tag 'base/maul_logo_red_blur.png'), '/', class: 'navbar-brand m-image-logo'
@@ -23,7 +23,8 @@
         .modal-header
           %h2#maulProjectModalTitle.modal-title Maul Project
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
         .modal-body.d-flex.flex-column
           .btn-selection__communities.text-center
             = link_to t('mainmenu.communities'), communities_path, class: 'link-white'
@@ -44,7 +45,8 @@
             %span{"aria-hidden" => "true"} ×
         .modal-body.d-flex.flex-column
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
           - if user_signed_in?
             .btn-selection__base.text-center
               = link_to 'Actualizar Perfil', edit_profile_path(current_user.profile.id), class: 'link-white'
@@ -59,7 +61,8 @@
       .modal-content.modal-menu
         .modal-body.d-flex.flex-column
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true", class: 'btn btn-outline-dark'} X
+            %span{"aria-hidden" => "true", class: 'link-white'}
+              %i.fa.fa-times.fa-2x
           .btn-selection__base.text-center
             =  link_to 'Registrarse', new_user_registration_path, class: 'link-white'
           .btn-selection__base.text-center

@@ -9,6 +9,11 @@ class CommunitiesController < ApplicationController
     @communities = Community.all
   end
 
+  def load_communities
+    @comuna = Comuna.find(params[:comuna_id])
+    @communities = Community.where(comuna_id: @comuna)
+  end
+
   # GET /communities/1
   # GET /communities/1.json
   def show
@@ -26,11 +31,11 @@ class CommunitiesController < ApplicationController
   # POST /communities
   # POST /communities.json
   def create
-    @community = Community.new(community_params)
+    @community = Community.new(community_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @community.save
-        format.html { redirect_to @community, notice: 'Community was successfully created.' }
+        format.html { redirect_to @community, notice: 'La comunidad se creo satisfactoriamente' }
         format.json { render :show, status: :created, location: @community }
       else
         format.html { render :new }
@@ -66,11 +71,11 @@ class CommunitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_community
-      @community = Community.find(params[:id])
+      @community = Community.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :about, :address, :phone, :email)
+      params.require(:community).permit(:name, :about, :address, :phone, :email, :facebook, :instagram, :twitter, :youtube, :website, :comuna_id, :picture)
     end
 end

@@ -94,4 +94,3 @@ doc/*.svg
 *~
 ## Redis
 *.rdb
-config/secrets/maul-app.json

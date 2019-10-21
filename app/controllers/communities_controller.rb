@@ -49,7 +49,7 @@ class CommunitiesController < ApplicationController
   def update
     respond_to do |format|
       if @community.update(community_params)
-        format.html { redirect_to @community, notice: 'Community was successfully updated.' }
+        format.html { redirect_to @community, notice: 'Comunidad actualizada satisfactoriamente' }
         format.json { render :show, status: :ok, location: @community }
       else
         format.html { render :edit }

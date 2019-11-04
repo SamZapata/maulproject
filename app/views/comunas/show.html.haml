@@ -10,7 +10,6 @@
   var communities = "#{@comuna.community.count}";
   var sites = "#{@comuna.site.count}";
   var events = "#{@comuna.event.count}";
-  console.log(sites);
   var chart = c3.generate({
     bindto: '#chart',
     data: {
@@ -31,3 +30,7 @@
       title: comuna
     }
   });
+
+  // tabs
+  var tabs_comuna = $('ul#tabComunasOp.nav.nav-tabs')
+  console.log(tabs_comuna);

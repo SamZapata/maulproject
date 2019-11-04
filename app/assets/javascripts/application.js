@@ -17,5 +17,6 @@
 //= require popper
 //= require bootstrap
 //= require font_awesome5
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require bootstrap-sprockets
 //= require_tree .

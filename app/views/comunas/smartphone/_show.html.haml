@@ -25,10 +25,12 @@
   .container
     .content-by-comuna.col-12
       #tabComunasOpContent.tab-content
+        -# show data
         #data.tab-pane.fade.show.active{"aria-labelledby" => "data-tab", :role => "tabpanel"}
           .col-12.mt-4
             %p
               .text-justify= @comuna.about
+            #chart
             %br
             .d-flex.justify-content-center
               = @comuna.map.html_safe

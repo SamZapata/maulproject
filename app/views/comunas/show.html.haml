@@ -2,5 +2,32 @@
 - type = client.device_type == 'smartphone' ? 'smartphone' : 'base'
 
 .comunas
-  
+
   = render "comunas/#{type}/show"
+
+:javascript
+  var comuna = "#{@comuna.name}";
+  var communities = "#{@comuna.community.count}";
+  var sites = "#{@comuna.site.count}";
+  var events = "#{@comuna.event.count}";
+  console.log(sites);
+  var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['Comunidades', communities],
+        ['Sitios', sites],
+        ['Eventos', events]
+      ],
+      type: 'donut',
+    },
+    donut: {
+      label: {
+        format: function (value, ratio, id) {
+          return value;
+          // return d3.format('$')(value);
+        }
+      },
+      title: comuna
+    }
+  });
